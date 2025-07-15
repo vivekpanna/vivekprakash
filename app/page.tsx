@@ -177,19 +177,28 @@ export default function ProfilePage() {
             {t.experience.map((exp, index) => (
               <Card
                 key={index}
-                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden"
+                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden
+                           group relative
+                           border-l-4 border-primary transform hover:-translate-y-1" // Added left border for visual appeal and subtle lift on hover
               >
+                {/* A small decorative circle for timeline feel */}
+                <div className="absolute -left-2 top-6 h-4 w-4 rounded-full bg-primary group-hover:bg-primary/80 transition-colors duration-300 z-10 border-2 border-white" />
+
                 <AccordionItem value={`item-${index}`}>
                   <AccordionTrigger className="p-6 text-left hover:no-underline flex items-center gap-4">
                     <Briefcase className="h-8 w-8 text-primary flex-shrink-0" />
                     <div className="flex flex-col items-start flex-grow">
-                      <h3 className="text-xl font-semibold text-primary">{exp.title}</h3>
-                      <p className="text-md text-gray-600">
-                        {exp.company} {exp.location && `| ${exp.location}`} | {exp.duration}
+                      <h3 className="text-2xl font-bold text-gray-900 mb-1">{exp.title}</h3>{" "}
+                      {/* Larger, bolder title */}
+                      <p className="text-lg text-gray-700">
+                        {exp.company} {exp.location && `| ${exp.location}`}
                       </p>
+                      <p className="text-md text-gray-600 font-medium">{exp.duration}</p> {/* Highlight duration */}
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="p-6 pt-0 bg-gray-50 border-t border-gray-100">
+                  <AccordionContent className="p-6 pt-0 bg-gray-50 border-t border-gray-100 rounded-b-xl">
+                    {" "}
+                    {/* Rounded bottom */}
                     <ul className="list-disc list-inside space-y-2 text-gray-700">
                       {exp.description.map((desc, descIndex) => (
                         <li key={descIndex}>{desc}</li>
@@ -321,13 +330,13 @@ export default function ProfilePage() {
               >
                 <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
                 <div className="flex flex-wrap gap-2">
-                  {category.items.map((item, itemIndex) => (
+                  {category.skills.map((skill, skillIndex) => (
                     <Badge
-                      key={itemIndex}
+                      key={skillIndex}
                       variant="secondary"
                       className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
                     >
-                      {item}
+                      {skill}
                     </Badge>
                   ))}
                 </div>
@@ -355,15 +364,60 @@ export default function ProfilePage() {
         {/* References Section */}
         <section id="references" className="mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.navReferences}</h2>
+
+          {/* Interim Reference */}
           <Card className="mb-8 shadow-lg bg-white border border-gray-200">
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-2xl text-primary">{t.references.interimReference.title}</CardTitle>
+              {t.references.interimReference.pdfUrl && (
+                <Link href={t.references.interimReference.pdfUrl} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="gap-2 bg-transparent">
+                    <Download className="w-4 h-4" /> Download PDF
+                  </Button>
+                </Link>
+              )}
             </CardHeader>
             <CardContent className="text-gray-700 leading-relaxed whitespace-pre-wrap">
               {t.references.interimReference.summary}
             </CardContent>
           </Card>
 
+          {/* Other References */}
+          {t.references.otherReferences && t.references.otherReferences.length > 0 && (
+            <>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6 mt-12 text-center md:text-left">
+                Other Formal References
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {t.references.otherReferences.map((ref, index) => (
+                  <Card
+                    key={index}
+                    className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
+                  >
+                    <CardHeader className="flex flex-row items-start justify-between gap-4 p-0 pb-4">
+                      <div className="flex flex-col">
+                        <CardTitle className="text-xl text-primary">{ref.title}</CardTitle>
+                        <p className="text-sm text-gray-600">{ref.company}</p>
+                        <p className="text-sm text-gray-500">{ref.date}</p>
+                      </div>
+                      {ref.pdfUrl && (
+                        <Link href={ref.pdfUrl} target="_blank" rel="noopener noreferrer">
+                          <Button variant="outline" size="sm" className="gap-1 bg-transparent">
+                            <Download className="w-4 h-4" /> PDF
+                          </Button>
+                        </Link>
+                      )}
+                    </CardHeader>
+                    <CardContent className="text-gray-700 leading-relaxed p-0 whitespace-pre-wrap">
+                      <p>{ref.summary}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* LinkedIn Recommendations */}
           <h3 className="text-3xl font-bold text-gray-900 mb-6 mt-12 text-center md:text-left">
             LinkedIn Recommendations
           </h3>

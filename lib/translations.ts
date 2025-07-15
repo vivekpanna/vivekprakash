@@ -1,6 +1,8 @@
+export type Language = "en" | "de"
+
 export const translations = {
   en: {
-    name: "Vivek Prakash",
+    name: "Rai Vivek Prakash",
     title: "Strategic & Visionary Product Leader",
     location: "Hamburg, Germany",
     email: "vivekpanna@gmail.com",
@@ -230,7 +232,7 @@ export const translations = {
         description:
           "Led the end-to-end product development and lifecycle management of a cutting-edge smart mobility SaaS platform with integrated AI and complex partner ecosystems.",
         longDescription:
-          "As Head of Product and Technology, I provided strategic leadership for the development and full lifecycle management of a pioneering B2B2C SaaS platform. This platform delivered advanced smart mobility solutions, featuring an innovative AI-powered chatbot and sophisticated fleet configurators. A core strategic achievement was orchestrating complex API-based data sharing across a diverse ecosystem of partners, including industry leaders like DAT and GDV. My role encompassed driving the product vision for critical modules such as insurance automation, digital garage, and claims estimation, while also strategically overseeing external technology partners and freelance engineers to ensure agile, cost-effective, and high-quality full-stack solution delivery.",
+          "As Head of Product and Technology, I provided strategic leadership for the development and full lifecycle management of a pioneering B2B2C SaaS platform. This platform delivered advanced smart mobility solutions, featuring an innovative AI-powered chatbot and sophisticated fleet configurators. A core strategic achievement was orchestrating complex API-based data sharing across a diverse ecosystem of partners, including industry leaders like DAT and GDV. My role encompassed driving the product vision for critical modules such as insurance automation, digital garage, and claims estimation, while also strategically overseeing external technology partners and freelance engineers, prioritizing cost-effective, agile, and high-quality full-stack solution delivery.",
       },
       {
         title: "IT Product Strategy: Operational Portal & Enterprise System Integration",
@@ -265,7 +267,7 @@ export const translations = {
     toolsCategories: [
       {
         title: "Product Management & Strategy",
-        items: [
+        skills: [
           "Atlassian Jira",
           "Confluence",
           "Trello",
@@ -278,23 +280,23 @@ export const translations = {
       },
       {
         title: "Design & Prototyping",
-        items: ["Figma", "Sketch", "Adobe XD"],
+        skills: ["Figma", "Sketch", "Adobe XD"],
       },
       {
         title: "Data Analytics & BI",
-        items: ["Google Analytics", "Power BI", "Tableau", "Mixpanel"],
+        skills: ["Google Analytics", "Power BI", "Tableau", "Mixpanel"],
       },
       {
         title: "Development & DevOps",
-        items: ["GitHub", "Jenkins", "Swagger", "Docker", "Kubernetes", "SonarQube", "OpenAI API", "Postman"],
+        skills: ["GitHub", "Jenkins", "Swagger", "Docker", "Kubernetes", "SonarQube", "OpenAI API", "Postman"],
       },
       {
         title: "Cloud Platforms",
-        items: ["AWS", "Azure", "Google Cloud Platform (GCP)", "Render", "Vercel"],
+        skills: ["AWS", "Azure", "Google Cloud Platform (GCP)", "Render", "Vercel"],
       },
       {
         title: "Programming & Frameworks",
-        items: [
+        skills: [
           "Python",
           "JavaScript",
           "TypeScript",
@@ -310,7 +312,7 @@ export const translations = {
       },
       {
         title: "Enterprise Systems (ERP/CRM)",
-        items: ["Oracle ERP (EWM)", "SAP ERP", "Microsoft Dynamics 365", "Salesforce", "Hubspot"],
+        skills: ["Oracle ERP (EWM)", "SAP ERP", "Microsoft Dynamics 365", "Salesforce", "Hubspot"],
       },
     ],
     languageKnowledge: "Language Knowledge",
@@ -336,7 +338,7 @@ Mr. Prakash Rai possesses excellent and very deep expertise, which he consistent
 
 He performs all tasks completely independently, extremely carefully, and thoughtfully. He always acts calmly, deliberately, goal-oriented, and with the highest degree of precision. In doing so, he consistently impresses in a special way both qualitatively and quantitatively. His absolute and unrestricted reliability and honesty are particularly noteworthy.
 
-He finds very effective solutions even for the most difficult problems, which he always successfully implements in practice, thereby consistently achieving excellent work results. His outstanding social competence is also to be highlighted. Due to his leadership qualities, he is highly recognized and popular as a superior. He always behaves openly and collegially towards his employees but nevertheless knows how to assert himself in difficult situations and motivate employees to optimal performance. Mr. Prakash Rai's performance receives our unreserved and in every respect fullest recognition.
+He finds very effective solutions even for the most difficult problems, which he always successfully implements in practice, thereby consistently achieving excellent work results. His outstanding social competence is also to be highlighted. Due to his leadership qualities, he is as a superior highly recognized and popular. He always behaves openly and collegially towards his employees but nevertheless knows how to assert himself in difficult situations and motivate employees to optimal performance. Mr. Prakash Rai's performance receives our unreserved and in every respect fullest recognition.
 
 He is universally highly esteemed for his consistently friendly and balanced nature. He is always helpful, courteous, and, if necessary, puts personal interests aside. His behavior towards superiors, colleagues, and customers is without exception exemplary and loyal.
 
@@ -347,7 +349,24 @@ AFC Claims GmbH
 Daniele Baldino
 Managing Director
 AFC Claims GmbH`,
+        pdfUrl: "/path/to/your/zwischenzeugnis.pdf",
       },
+      otherReferences: [
+        {
+          title: "Reference from Deposit Solutions GmbH",
+          company: "Deposit Solutions GmbH",
+          date: "March 2020",
+          summary: `[Please provide the summary text for the Deposit Solutions reference here. This section is for formal references beyond LinkedIn recommendations.]`,
+          pdfUrl: "/path/to/your/deposit-solutions-reference.pdf",
+        },
+        {
+          title: "Reference from Schneider Electric",
+          company: "Schneider Electric",
+          date: "October 2016",
+          summary: `[Please provide the summary text for the Schneider Electric reference here. This section is for formal references beyond LinkedIn recommendations.]`,
+          pdfUrl: "/path/to/your/schneider-electric-reference.pdf",
+        },
+      ],
       linkedinRecommendations: [
         {
           name: "Garrick Simeon",
@@ -365,7 +384,7 @@ AFC Claims GmbH`,
           name: "Daniel Rea",
           relationship: "Worked with Vivek but on different teams",
           date: "May 16, 2017",
-          text: "Vivek has a remarkable ability to simultaneously operate at both low and high levels. By that I mean he's happy to get his hands dirty with technical issues, Continuous Integration systems, Issue Tracking systems, Software Licensing systems, and collaborating with his team to overcome any blockers; yet at the same time he has a shrewd understanding of the business position, all company deliverables, and distant risks. He's cares about his people, and he knows their skill-sets (and how best to bring them to bear). He smoothly transitions between technical and non-technical language to suit the situation, communicating with precision and without bias to various stakeholders and team members alike. With superb planning and organisational skills, and a pleasant and unshakeable disposition, Vivek is a pleasure to work with and definitely someone I'd recommend to any organisation.",
+          text: "Vivek hat eine bemerkenswerte Fähigkeit, gleichzeitig auf niedriger und höherer Ebene zu operieren. Er ist bereit, sich mit technischen Problemen zu befassen, hat aber gleichzeitig ein scharfes Verständnis für die Geschäftsposition und alle Unternehmensziele. Er kümmert sich um seine Mitarbeiter und kennt ihre Fähigkeiten. Er wechselt reibungslos zwischen technischer und nicht-technischer Sprache, um der Situation gerecht zu werden, und kommuniziert präzise mit verschiedenen Stakeholdern und Teammitgliedern. Mit hervorragenden Planungs- und Organisationsfähigkeiten und einer angenehmen und unerschütterlichen Veranlagung ist Vivek eine Freude, mit ihm zu arbeiten und definitiv jemand, den ich jeder Organisation empfehlen würde.",
         },
         {
           name: "RaviKiran Perumalla",
@@ -403,7 +422,7 @@ AFC Claims GmbH`,
     aboutMeContent1:
       "Mit über 20 Jahren Erfahrung im Technologiesektor verfüge ich über ein tiefgreifendes Verständnis des gesamten Produktlebenszyklus, von der strategischen Ideenfindung und sorgfältigen Entwicklung bis zur erfolgreichen Markteinführung und nachhaltigem Wachstum. Meine berufliche Laufbahn hat eine einzigartige Synergie aus strategischer Weitsicht, tiefem technischem Verständnis und transformativen Führungsfähigkeiten geschmiedet. Ich gedeihe in dynamischen, schnelllebigen Umgebungen und nutze konsequent agile Methoden, um eine robuste Zusammenarbeit zu fördern und eine qualitativ hochwertige Produktlieferung zu beschleunigen.",
     aboutMeContent2:
-      "Meine Kernleidenschaft ist es, Produkte zu konzipieren und zu entwickeln, die komplexe reale Herausforderungen lösen, gepaart mit der Entwicklung marktdurchdringender Strategien, die tief bei den Zielgruppen ankommen. Als IT-Führungskraft habe ich zahlreiche digitale Transformationen erfolgreich vorangetrieben und die betriebliche Effizienz optimiert, immer mit einem scharfen Fokus auf wegweisende Innovation und die Förderung nachhaltigen Wachstums. Ich bin zutiefst dem kontinuierlichen Lernen verpflichtet und befähige Teams, ihr volles Potenzial auszuschöpfen, um gemeinsamen Erfolg zu erzielen.",
+      "Meine Kernleidenschaft ist es, Produkte zu konzipieren und zu entwickeln, die komplexe reale Herausforderungen lösen, gepaart mit der Entwicklung marktdurchdringender Strategien, die tief bei den Zielgruppen ankommen. Als IT-Führungskraft habe ich zahlreiche digitale Transformationen erfolgreich vorangetrieben und die betriebliche Effizienz optimiert, immer mit einem scharfem Fokus auf wegweisende Innovation und die Förderung nachhaltigen Wachstums. Ich bin zutiefst dem kontinuierlichen Lernen verpflichtet und befähige Teams, ihr volles Potenzial auszuschöpfen, um gemeinsamen Erfolg zu erzielen.",
     keyAchievements: "Wichtige Erfolge",
     achievementsList: [
       "Aufbau und Skalierung hochleistungsfähiger Produkt- und Engineering-Teams durch strategisches Mentoring und Fokus auf kohärente, ergebnisorientierte Zusammenarbeit.",
@@ -438,7 +457,7 @@ AFC Claims GmbH`,
           "Umfassende Zusammenarbeit mit funktionsübergreifenden Stakeholdern aus Entwicklung, Support und UI/UX-Teams, um präzise Akzeptanzkriterien festzulegen und die Bereitstellung von wirkungsvollen, qualitativ hochwertigen Funktionen sicherzustellen.",
           "Proaktive Zusammenarbeit mit Geschäftsstakeholdern und Schlüsselkunden, um wertvolles Feedback zu sammeln, die Produktstrategie akribisch zu verfeinern und die erfolgreiche Umsetzung der Produkt-Roadmap voranzutreiben.",
           "Kultivierung einer Kultur der kontinuierlichen Verbesserung, die zu einer bemerkenswerten Reduzierung der Markteinführungszeit um 30 % und einer Steigerung der Kundenzufriedenheit um 25 % führte.",
-          "Strategische Erweiterung des bestehenden Lieferanten- und Logistikernetzwerks im Rahmen von M&A-Prozessen, wodurch erhebliche Kostenoptimierungen und Qualitätsverbesserungen erzielt wurden.",
+          "Strategische Erweiterung des bestehenden Lieferanten- und Logistiker-Netzwerks im Rahmen von M&A-Prozessen, wodurch erhebliche Kostenoptimierungen und Qualitätsverbesserungen erzielt wurden.",
           "Enge Zusammenarbeit mit dem Cybersecurity-Team, um IT-Sicherheitsrisiken proaktiv zu mindern und die strikte Einhaltung von Industriestandards sicherzustellen.",
         ],
       },
@@ -493,7 +512,7 @@ AFC Claims GmbH`,
           "Als Engineering Manager traf ich entscheidende technische Entscheidungen bei komplexen IT-Projekten und leitete effektiv verschiedene IT-Teams, um den Projekterfolg sicherzustellen.",
           "Verwaltung von End-to-End-Projektmanagementaktivitäten, mit starkem Fokus auf Lean-Startup-Methoden zur Effizienzoptimierung und Beschleunigung der Lieferung.",
           "Aufbau einer robusten DevOps-Umgebung von Grund auf und erfolgreiches Coaching globaler Teams zur Annahme einer agilen Denkweise, wodurch kontinuierliche Integration und Bereitstellung gefördert wurden.",
-          "Leitung der IT-Service-Management-Systeme der IT Business Unit, einschließlich umfassendem Incident Management und effizientem Service Desk-Betrieb.",
+          "Leitung der IT Business Unit’s IT service management systems, einschließlich umfassendem Incident Management und effizientem Service Desk-Betrieb.",
           "Festlegung klarer Service Level Agreements (SLAs) und strategische Verwaltung von Lieferantenbeziehungen, um stets hohe Servicequalität und operative Exzellenz zu gewährleisten.",
         ],
       },
@@ -593,7 +612,7 @@ AFC Claims GmbH`,
         skills: [
           "Benutzerzentrierte Designprinzipien",
           "Usability-Tests & Iteration",
-          "Interface-Redesign & -Optimierung",
+          "Interface Redesign & Optimierung",
         ],
         color: "pink",
       },
@@ -612,7 +631,7 @@ AFC Claims GmbH`,
         description:
           "Ein detaillierter Architekturplan und eine strategische Diskussion zum Aufbau eines leistungsstarken, skalierbaren Reiseportals.",
         longDescription:
-          "Diese Initiative konzentrierte sich auf die Gestaltung eines hochgradig skalierbaren und widerstandsfähigen Architekturplans für ein modernes Reiseportal. Die strategische Diskussion umfasste einen Microservices-basierten Designansatz, nahtlose API-Integrationen mit einer Vielzahl globaler Reiseanbieter (Flüge, Hotels, Mietwagen), und die Implementierung robuster, fehlertoleranter Datenbanklösungen. Kritische Überlegungen umfassten die Optimierung für hohe Verfügbarkeit, die Ermöglichung der Echtzeit-Datenverarbeitung für dynamische Preisstrategien und die Sicherstellung sicherer, konformer Zahlungsgateways. Die Architektur wurde speziell entwickelt, um Skalierbarkeitsherausforderungen während Spitzenverkehrszeiten zu bewältigen und die zukünftige Integration von KI für hyperpersonalisierte Benutzererlebnisse und Empfehlungen zu erleichtern.",
+          "Diese Initiative konzentrierte sich auf die Gestaltung eines hochgradig skalierbaren und widerstandsfähigen Architekturplans für ein modernen Reiseportal. Die strategische Diskussion umfasste einen Microservices-basierten Designansatz, nahtlose API-Integrationen mit einer Vielzahl globaler Reiseanbieter (Flüge, Hotels, Mietwagen), und die Implementierung robuster, fehlertoleranter Datenbanklösungen. Kritische Überlegungen umfassten die Optimierung für hohe Verfügbarkeit, die Ermöglichung der Echtzeit-Datenverarbeitung für dynamische Preisstrategien und die Sicherstellung sicherer, konformer Zahlungsgateways. Die Architektur wurde speziell entwickelt, um Skalierbarkeitsherausforderungen während Spitzenverkehrszeiten zu bewältigen und die zukünftige Integration von KI für hyperpersonalisierte Benutzererlebnisse und Empfehlungen zu erleichtern.",
       },
       {
         title: "Produktführung: B2B2C Smart Mobility SaaS-Plattform",
@@ -626,35 +645,35 @@ AFC Claims GmbH`,
         description:
           "Definition und Umsetzung der IT-Produktvision für ein Flaggschiff-Betriebsportal, Integration von KI-Funktionen und Orchestrierung komplexer ERP/CRM-Systemverbindungen.",
         longDescription:
-          "In dieser Schlüsselrolle war ich für die Definition und Umsetzung der strategischen IT-Produktvision für das Flaggschiff-Betriebsportal des Unternehmens verantwortlich. Ein wichtiges strategisches Gebot war die Integration fortschrittlicher KI-gesteuerter Funktionen, die sowohl die Benutzererfahrung als auch die Betriebseffizienz nachweislich verbesserten. Ich leitete auch die komplexe Integration der proprietären ERP-Systeme des Unternehmens mit führenden Drittanbieterlösungen, einschließlich Hubspot CRM und eGecko Buchhaltungssystemen. Diese Initiative optimierte kritische Geschäftsprozesse, verbesserte die Datenintegrität und bot eine einheitliche Sicht auf die Abläufe. Meine Führung umfasste eine umfassende Zusammenarbeit mit funktionsübergreifenden Stakeholdern aus Entwicklung, Support und UI/UX-Teams, um strenge Akzeptanzkriterien festzulegen und die erfolgreiche Bereitstellung von wirkungsvollen, geschäftskritischen Funktionen sicherzustellen.",
+          "In dieser Schlüsselrolle war ich für die Definition und Umsetzung der strategischen IT-Produktvision für das Flaggschiff-Betriebsportal des Unternehmens verantwortlich. Ein wichtiges strategisches Gebot war die Integration fortschrittlicher KI-gesteuerter Funktionen, die sowohl die Benutzererfahrung als auch die Betriebseffizienz nachweislich verbesserten. Diese Initiative optimierte kritische Geschäftsprozesse, verbesserte Datenintegrität und ermöglichte eine einheitliche Betriebsansicht. Meine Führung umfasste umfassende Zusammenarbeit mit funktionsübergreifenden Stakeholdern aus Entwicklung, Support und UI/UX-Teams, um strenge Akzeptanzkriterien festzulegen und die erfolgreiche Bereitstellung hochwirkungsvoller, geschäftskritischer Funktionen sicherzustellen.",
       },
       {
-        title: "Senior Produktmanagement: Innovation bei Zahlungs- & KYC-Lösungen",
+        title: "Senior Produktmanagement: Zahlungs- und KYC-Lösungen Innovation",
         description:
-          "Anführung der Entwicklung kritischer Zahlungsintegrations- und KYC-Geschäftsfälle, die erhebliches Wachstum und Innovation in der Finanzbranche vorantrieben.",
+          "Anführung der Entwicklung kritischer Zahlungsintegrations- und KYC-Geschäftsfälle, die erhebliches Wachstum und Innovation in der Finanzbranche vorantreiben.",
         longDescription:
-          "Während meiner Tätigkeit als Senior Produktmanager leitete ich die strategische Produktentwicklung für kritische Zahlungsintegrations- und Know Your Customer (KYC)-Geschäftsfälle. Diese Rolle erforderte tiefgreifende Expertise im Umgang mit komplexen Zahlungslösungen und der Einhaltung strenger regulatorischer Vorschriften. Meine Beiträge waren entscheidend für die strategische Transformation und das signifikante Wachstum des Unternehmens, insbesondere nach der Sicherung der Series-B-Finanzierung, wodurch seine Position als wichtiger Innovator in der Finanzbranche gefestigt wurde. Ich wandte rigoros fortschrittliche agile Methoden an und zeigte außergewöhnliche Fähigkeiten in der strategischen Backlog-Pflege, Priorisierung und akribischen Sprintplanung mit mehreren leistungsstarken Scrum-Teams. Diese Führung trieb direkt produktgesteuerte Wachstumsinitiativen voran, die die Benutzerakquise und -bindung erheblich verbesserten.",
+          "Während meiner Tätigkeit als Senior Produktmanager übernahm ich die strategische Führung bei der Entwicklung kritischer Zahlungsintegrations- und Know Your Customer (KYC)-Geschäftsfälle. Diese Rolle erforderte tiefgreifende Expertise bei der Navigation durch komplexe Zahlungslösungen und der Einhaltung strenger regulatorischer Rahmenbedingungen. Meine Beiträge waren maßgeblich für die strategische Transformation und das erhebliche Wachstum des Unternehmens, insbesondere nach der Erreichung der Series-B-Finanzierung, verantwortlich, die seine Position als wegweisender Innovator in der Finanzbranche festigte. Ich wendete konsequent fortschrittliche agile Methoden an, zeigend außergewöhnliche Fähigkeiten in der strategischen Backlog-Pflege, Priorisierung und akribischen Sprintplanung mit mehreren hochleistungsfähigen Scrum-Teams an. Diese Führung stärkte produktgesteuerte Wachstumsinitiativen, die die Benutzerakquise und -bindung erheblich verbesserten.",
       },
     ],
     educationCertifications: "Ausbildung & Zertifizierungen",
     educationList: [
       "Product Management Professional, 2015, IPM, Bangalore",
-      "Master-Abschluss, Informatik (2007) – IGNOU, Neu-Delhi",
-      "Bachelor-Abschluss, Physik und Mathematik (1999), IGNOU, Neu-Delhi",
+      "Master's Degree, Computer Science (2007) – IGNOU, New Delhi",
+      "Bachelor's Degree, Physics and Mathematics (1999), IGNOU, New Delhi",
     ],
     certificationsList: [
       "PRINCE2 Practitioner",
-      "Agile Coach und Facilitator",
+      "Agile Coach and Facilitator",
       "Certified ScrumMaster (CSM)",
       "CCNA",
       "ISTQB Certified Tester",
-      "KI- und ML-Grundlagen mit DeepLearning.AI",
+      "AI and ML Fundamentals with DeepLearning.AI",
     ],
     toolsMethods: "Tools & Methoden",
     toolsCategories: [
       {
         title: "Produktmanagement & Strategie",
-        items: [
+        skills: [
           "Atlassian Jira",
           "Confluence",
           "Trello",
@@ -667,23 +686,23 @@ AFC Claims GmbH`,
       },
       {
         title: "Design & Prototyping",
-        items: ["Figma", "Sketch", "Adobe XD"],
+        skills: ["Figma", "Sketch", "Adobe XD"],
       },
       {
         title: "Datenanalyse & BI",
-        items: ["Google Analytics", "Power BI", "Tableau", "Mixpanel"],
+        skills: ["Google Analytics", "Power BI", "Tableau", "Mixpanel"],
       },
       {
         title: "Entwicklung & DevOps",
-        items: ["GitHub", "Jenkins", "Swagger", "Docker", "Kubernetes", "SonarQube", "OpenAI API", "Postman"],
+        skills: ["GitHub", "Jenkins", "Swagger", "Docker", "Kubernetes", "SonarQube", "OpenAI API", "Postman"],
       },
       {
         title: "Cloud-Plattformen",
-        items: ["AWS", "Azure", "Google Cloud Platform (GCP)", "Render", "Vercel"],
+        skills: ["AWS", "Azure", "Google Cloud Platform (GCP)", "Render", "Vercel"],
       },
       {
         title: "Programmierung & Frameworks",
-        items: [
+        skills: [
           "Python",
           "JavaScript",
           "TypeScript",
@@ -699,12 +718,12 @@ AFC Claims GmbH`,
       },
       {
         title: "Unternehmenssysteme (ERP/CRM)",
-        items: ["Oracle ERP (EWM)", "SAP ERP", "Microsoft Dynamics 365", "Salesforce", "Hubspot"],
+        skills: ["Oracle ERP (EWM)", "SAP ERP", "Microsoft Dynamics 365", "Salesforce", "Hubspot"],
       },
     ],
     languageKnowledge: "Sprachkenntnisse",
-    languages: ["Deutsch (Fließend)", "English (Fließend)"],
-    footerText: "Lassen Sie uns verbinden und gemeinsam wirklich Wirkungsvolles aufbauen!",
+    languages: ["Deutsch (fließend)", "Englisch (fließend)"],
+    footerText: "Lassen Sie uns zusammenarbeiten und etwas wirklich beeindruckendes schaffen!",
     footerCopyright: "Alle Rechte vorbehalten.",
     navAbout: "Über mich",
     navExperience: "Erfahrung",
@@ -716,69 +735,76 @@ AFC Claims GmbH`,
     navReferences: "Referenzen",
     references: {
       interimReference: {
-        title: "Zwischenzeugnis von AFC Claims GmbH",
-        summary: `Herr Vivek Prakash Rai, geboren am 17.02.1980, ist seit dem 01.03.2020 in unserem Unternehmen in verschiedenen Positionen, derzeit als Head of Product in der Abteilung IT Product Management tätig. Die AFC Claims GmbH ist ein Dienstleistungsunternehmen, das insbesondere die komplette Schadenabwicklung für gewerblich genutzte Kfz-Flotten übernimmt. Mit jährlich mehr als 90.000 abgewickelten Schäden ist AFC in Deutschland Marktführer.
+        title: "Interimsreferenz von AFC Claims GmbH",
+        summary: `Herr Vivek Prakash Rai wurde am 1. März 2020 bei AFC Claims GmbH eingesetzt und hat seitdem verschiedene Positionen inne, darunter derzeit Leiter Produkt in der Abteilung IT Produktmanagement. AFC Claims GmbH ist eine Dienstgesellschaft, die sich auf die vollständige Schadensverarbeitung für kommerziell genutzte Fahrzeugflotten spezialisiert hat und der Marktführer in Deutschland ist mit über 90.000 jährlich verarbeiteten Schäden.
 
-Während seiner Tätigkeit ist Herr Prakash Rai mit folgenden Aufgaben betraut:
-Disziplinarische und fachliche Führung des Teams, Aufbau und Betreuung des Produktteams (einschließlich Personalmanagement), Aufbau und Integration der wichtigsten IT-Systeme für die Tochtergesellschaft Nobleglass GmbH & Co. KG, Einrichtung eines IT-Unterstützungssystems, Entwicklung von Produktstrategien und Fahrplänen für Nobleglass GmbH & Co. KG und Auto Fleet Control GmbH, Mitwirkung an der Produktgestaltung von internen Systemen, Entwurf der frühen Phasen des BI-Systems, Vertragsverhandlungen mit Partnern, Lieferanten und Kunden, Modernisierung von hausinternen Altsystemen, Definition von KPIs und Erfolgsfaktoren für neue Produkteinführungen, Festlegung von Priorisierungsprozessen für das Produkt- und IT-Dienstleistungsportfolio des Unternehmens, Leitung verschiedener Maßnahmen zur digitalen Transformation, Integration und Migration, Aktivitäten im Bereich Projektmanagement.
+Während seiner Laufbahn wurde Herr Prakash Rai mit der disziplinären und technischen Führung des Teams beauftragt, das Produktteam (einschließlich Personalverwaltung) aufzubauen und zu unterstützen, wesentliche IT-Systeme für Nobleglass GmbH & Co. KG einzurichten und zu integrieren, ein IT-Supportsystem einzurichten, Produktstrategien und Roadmaps für Nobleglass GmbH & Co. KG und Auto Fleet Control GmbH zu entwickeln, zur Produktentwicklung interner Systeme beizutragen, die frühen Phasen des BI-Systems zu gestalten, Vertragsverhandlungen mit Partnern, Lieferanten und Kunden durchzuführen, in-house veraltete Systeme zu modernisieren, KPIs und Erfolgsfaktoren für neue Produktlaunches zu definieren, Priorisierungsprozesse für das Produkt- und IT-Dienstportfolio des Unternehmens einzurichten und verschiedene digitale Transformationen, Integrationen und Migrationsaktivitäten sowie Projektmanagementaktivitäten zu leiten.
 
-Herr Prakash Rai verfügt über ein hervorragendes und auch in Randbereichen sehr tiefgehendes Fachwissen, welches er in unser Unternehmen stets in höchst gewinnbringender Weise einbringt. Aufgrund seiner ausgezeichneten Auffassungsgabe ist er jederzeit in der Lage, auch schwierige Situationen sofort zutreffend zu erfassen und schnell exzellente Lösungen zu finden. Herr Prakash Rai ist ein immer überaus engagierter Mitarbeiter, der stets vor allem durch seine außergewöhnliche Leistungsbereitschaft und außerordentliche Einsatzbereitschaft herausragt. Auch in Situationen mit größtem Arbeitsaufkommen erweist er sich dauerhaft als außergewöhnlich belastbar.
+Herr Prakash Rai verfügt über ausgezeichnete und sehr tiefgreifende Expertise, die er stets in einem sehr profitablen Maß an unsere Gesellschaft anwendet. Aufgrund seiner ausgezeichneten Verständnisfähigkeit ist er stets in der Lage, auch schwierige Situationen genau und schnell zu verstehen und ausgezeichnete Lösungen zu finden. Herr Prakash Rai ist ein stets außergewöhnlich engagierter Mitarbeiter, der sich vor allem durch seine außergewöhnliche Willenskraft und seine ausgezeichnete Hingabe hervorragt. Selbst in Situationen mit der höchsten Arbeitsbelastung beweist er stets außergewöhnliche Resilienz.
 
-Alle Aufgaben führt er jederzeit vollkommen selbstständig, äußerst sorgfältig und planvoll durchdacht aus. Er agiert immer ruhig, überlegt, zielorientiert und in höchstem Maße präzise. Dabei überzeugt er stets in besonderer Weise sowohl in qualitativer als auch in quantitativer Hinsicht. Besonders hervorzuheben sind seine absolute und uneingeschränkte Zuverlässigkeit und Ehrlichkeit.
+Er führt alle Aufgaben vollständig unabhängig, sehr sorgfältig und nachdenklich aus. Er handelt stets ruhig, vorsichtig, ziellastig und mit der höchsten Präzision. Auf diese Weise beeindruckt er sowohl qualitativ als auch quantitativ in besonderer Weise. Seine absolute und unbeschränkte Zuverlässigkeit und Ehrlichkeit sind besonders bemerkenswert.
 
-Auch für schwierigste Problemstellungen findet er sehr effektive Lösungen, die er jederzeit erfolgreich in die Praxis umsetzt und damit immer ausgezeichnete Arbeitsergebnisse erzielt. Hervorzuheben ist außerdem seine hervorragende soziale Kompetenz. Aufgrund seiner Führungsqualitäten ist er als Vorgesetzter in hohem Maße anerkannt und beliebt. Er verhält sich seinen Mitarbeiterinnen und Mitarbeitern gegenüber stets offen und kollegial, versteht es aber dennoch, sich in schwierigen Situationen durchzusetzen und die Mitarbeiterinnen und Mitarbeiter zu optimalem Einsatz zu motivieren. Die Leistungen von Herrn Prakash Rai finden ausnahmslos und in jeder Beziehung unsere vollste Anerkennung.
+Er findet auch für die schwierigsten Probleme sehr effektive Lösungen, die er stets erfolgreich in der Praxis umsetzt und dadurch stets ausgezeichnete Arbeitsergebnisse erzielt. Seine außergewöhnliche soziale Kompetenz soll auch hervorgehoben werden. Aufgrund seiner Führungsfähigkeiten wird er von seinen Kollegen als hoch geschätzt und beliebt angesehen. Er verhält sich stets offen und kollegial gegenüber seinen Mitarbeitern, weiß aber auch, sich in schwierigen Situationen zu behaupten und die Mitarbeiter zur optimalen Leistung anzumotivieren. Die Leistung von Herrn Prakash Rai erhält unsere unbeschränkte und in jeder Hinsicht vollständige Anerkennung.
 
-Er wird wegen seines konstant freundlichen und ausgeglichenen Wesens allseits sehr geschätzt. Er ist immer hilfsbereit, zuvorkommend und stellt, falls erforderlich, auch persönliche Interessen zurück. Sein Verhalten gegenüber Vorgesetzten, Kolleginnen und Kollegen sowie Kundinnen und Kunden ist ausnahmslos vorbildlich und loyal.
+Er wird allgemein für seine stets freundliche und ausgeglichene Natur hoch geschätzt. Er ist immer hilfsbereit, höflich und setzt bei Bedarf persönliche Interessen beiseite. Sein Verhalten gegenüber Vorgesetzten, Kollegen und Kunden ist ohne Ausnahme exemplarisch und loyal.
 
-Grund für die Ausstellung dieses Zwischenzeugnisses ist der Wunsch von Herrn Prakash Rai. Wir bedanken uns bei ihm für die im bisherigen Arbeitsverhältnis erbrachten stets sehr guten Leistungen und wünschen weiterhin viel Erfolg und alles Gute.
-
-Hamburg, 12.12.2024
-AFC Claims GmbH
-Daniele Baldino
-Geschäftsführer
-AFC Claims GmbH`,
+Die Ursache für die Ausstellung dieser Interimsreferenz ist die Anfrage von Herrn Prakash Rai. Wir danken ihm für seine stets sehr gute Leistung in der Beschäftigungsbeziehung bislang und wünschen ihm alles Gute für die Zukunft.`,
+        pdfUrl: "/path/to/your/zwischenzeugnis.pdf",
       },
+      otherReferences: [
+        {
+          title: "Referenz von Deposit Solutions GmbH",
+          company: "Deposit Solutions GmbH",
+          date: "März 2020",
+          summary: `[Bitte geben Sie den Zusammenfassungstext für die Referenz von Deposit Solutions hier ein. Dieser Abschnitt ist für formelle Referenzen außerhalb von LinkedIn-Bewertungen gedacht.]`,
+          pdfUrl: "/path/to/your/deposit-solutions-reference.pdf",
+        },
+        {
+          title: "Referenz von Schneider Electric",
+          company: "Schneider Electric",
+          date: "Oktober 2016",
+          summary: `[Bitte geben Sie den Zusammenfassungstext für die Referenz von Schneider Electric hier ein. Dieser Abschnitt ist für formelle Referenzen außerhalb von LinkedIn-Bewertungen gedacht.]`,
+          pdfUrl: "/path/to/your/schneider-electric-reference.pdf",
+        },
+      ],
       linkedinRecommendations: [
         {
           name: "Garrick Simeon",
-          relationship: "Managed Vivek directly",
-          date: "August 5, 2020",
-          text: "Vivek came to work for me as a delivery manager of software development teams during the bedding in of a companywide agile transformation. There were many challenges Vivek defined and resolved using his experience and mentoring approach combined with an acute understanding of process management. Many of the systems in operation required adjustment to align with the other parts of the organisation to provide clarity on delivery time frames and usable MVP’s. Vivek is a trustworthy, diligent, experienced delivery and product manager, that understands the important of software development limitations and the business need for actionable and relevant information. His contribution translated into actionable business outcomes. I wholeheartedly recommend Vivek as a highly skilled, respectful, and trustworthy delivery and product manger to any company that values professional commitment with a salient understanding of what a business needs to succeed.",
+          relationship: "Hatte Vivek direkt unter seiner Führung",
+          date: "5. August 2020",
+          text: "Vivek kam zu mir als Delivery Manager von Softwareentwicklungsteams während der Einführung einer companyweiten agilen Transformation. Es gab viele Herausforderungen, die Vivek definiert und mit seiner Erfahrung und seinem Mentoringansatz sowie einer scharfen Kenntnis der Prozessmanagement definiert hat. Viele der im Betrieb befindlichen Systeme mussten angepasst werden, um mit anderen Teilen der Organisation zusammenzuarbeiten und Klarheit über Lieferzeitrahmen und nutzbare MVPs zu schaffen. Vivek ist ein vertrauenswürdiger, fleißiger und erfahrener Delivery- und Produktmanager, der die Wichtigkeit der Softwareentwicklungsgrenzen und den Geschäftsbetrieb für handlungsfähige und relevante Informationen versteht. Seine Beiträge führten zu handlungsfähigen Geschäftsresultaten. Ich empfehle Vivek als hoch qualifizierten, respektvollen und vertrauenswürdigen Delivery- und Produktmanager zu jedem Unternehmen, das einen professionellen Einsatz mit einem klaren Verständnis des Erfolgs von Geschäftsunternehmen schätzt.",
         },
         {
           name: "Alex Sloley",
-          relationship: "Senior to Vivek but didn't manage Vivek directly",
-          date: "August 20, 2017",
-          text: "Vivek is a diligent and thoughtful leader who inspires calm and cohesiveness on his teams. His pragmatic approach emphasizes the value of people and not just blind adherence to process. He has a solid grasp of fundamental management principles and executes a variety of practices with expertise. Vivek is a leader that I have come to deeply respect and admire. I would be honored to work with him again.",
+          relationship: "Senior zu Vivek, aber hat Vivek nicht direkt unter seiner Führung",
+          date: "20. August 2017",
+          text: "Vivek ist ein fleißiger und nachdenklicher Führer, der Ruhe und Zusammenhalt auf seinen Teams inspiriert. Sein pragmatischer Ansatz betont den Wert von Menschen und nicht nur die blinden Anwendung von Prozessen. Er hat einen soliden Griff an grundlegenden Managementprinzipien und führt eine Vielzahl von Praktiken mit Expertise aus. Vivek ist ein Führer, den ich tief respektiere und bewundere. Ich würde es mir als Ehre sein, wieder mit ihm zu arbeiten.",
         },
         {
           name: "Daniel Rea",
-          relationship: "Worked with Vivek but on different teams",
-          date: "May 16, 2017",
-          text: "Vivek has a remarkable ability to simultaneously operate at both low and high levels. By that I mean he's happy to get his hands dirty with technical issues, Continuous Integration systems, Issue Tracking systems, Software Licensing systems, and collaborating with his team to overcome any blockers; yet at the same time he has a shrewd understanding of the business position, all company deliverables, and distant risks. He's cares about his people, and he knows their skill-sets (and how best to bring them to bear). He smoothly transitions between technical and non-technical language to suit the situation, communicating with precision and without bias to various stakeholders and team members alike. With superb planning and organisational skills, and a pleasant and unshakeable disposition, Vivek is a pleasure to work with and definitely someone I'd recommend to any organisation.",
+          relationship: "Hat mit Vivek gearbeitet, aber auf verschiedenen Teams",
+          date: "16. Mai 2017",
+          text: "Vivek hat eine bemerkenswerte Fähigkeit, gleichzeitig auf niedriger und höherer Ebene zu operieren. Er ist bereit, sich mit technischen Problemen zu befassen, hat aber gleichzeitig ein scharfes Verständnis für die Geschäftsposition und alle Unternehmensziele. Er kümmert sich um seine Mitarbeiter und kennt ihre Fähigkeiten. Er wechselt reibungslos zwischen technischer und nicht-technischer Sprache, um der Situation gerecht zu werden, und kommuniziert präzise mit verschiedenen Stakeholdern und Teammitgliedern. Mit hervorragenden Planungs- und Organisationsfähigkeiten und einer angenehmen und unerschütterlichen Veranlagung ist Vivek eine Freude, mit ihm zu arbeiten und definitiv jemand, den ich jeder Organisation empfehlen würde.",
         },
         {
           name: "RaviKiran Perumalla",
-          relationship: "Reported directly to Vivek",
-          date: "January 6, 2016",
-          text: "Me and Vivek were part of the long journey in the design tools team and I saw him in many different roles. He was best in his all roles he did at Schneider and has the best knowledge on all the products our team has. He is the best decision maker when the team is in confusion. He handled many tough situations by driving the team towards the goal. He understand the team members needs and tries to solve their problems with his best abilities. He can recognise the talent and encourage them to reach their goals in his career. I recommend him for any organisation for any of the roles he wants to perform.",
+          relationship: "Berichtete direkt an Vivek",
+          date: "6. Januar 2016",
+          text: "Ich und Vivek waren Teil des langen Projekts im Design-Tools-Team und ich sah ihn in vielen verschiedenen Rollen. Er war am besten in seinen allen Rollen, die er bei Schneider bekleidete und hat die besten Kenntnisse zu allen Produkten unseres Teams. Er ist der beste Entscheidungsfindende, wenn das Team in Verwirrung ist. Er löste viele schwierige Situationen durch die Führung des Teams zur Zielrichtung. Er versteht die Bedürfnisse der Teammitglieder und versucht, ihre Probleme mit seinen besten Fähigkeiten zu lösen. Er kann Talent erkennen und fördert es, damit die Mitarbeiter ihre Karrierziele erreichen. Ich empfehle ihn jedem Unternehmen für jede Rolle, die er sich wünscht.",
         },
         {
           name: "Anoop jha",
-          relationship: "Reported directly to Vivek",
-          date: "June 21, 2008",
-          text: "Vivek is a fun loving, disciplined and managed person. The best part which I liked about him was handling issues in the project. I found him to be the best in difficult situations. He was a good team leader and mentor for me.",
+          relationship: "Berichtete direkt an Vivek",
+          date: "21. Juni 2008",
+          text: "Vivek ist ein Spaßliebender, disziplinierter und organisierter Mensch. Der beste Teil, den ich an ihm geschätzt habe, war die Behandlung von Problemen im Projekt. Ich fand ihn am besten in schwierigen Situationen. Er war ein guter Teamleiter und Mentor für mich.",
         },
         {
           name: "Manjunath M Shringeshwara",
-          relationship: "Reported directly to Vivek",
-          date: "May 23, 2008",
-          text: "“Vivek is a man of high commitment and with great leadership qualities. He is a great team player and wonderful friend, He was both my mentor and my lead in Sapient. It was a pleasure to work with him,He has capability and commitment to achieve the set goals .He has a uncanny ability to perform different roles ,and achieving the desired result with ease .”",
+          relationship: "Berichtete direkt an Vivek",
+          date: "23. Mai 2008",
+          text: "“Vivek ist ein Mann von hohem Engagement und großartigen Führungsfähigkeiten. Er ist ein großartiger Teamspieler und wundervoller Freund. Er war sowohl mein Mentor als auch mein Lead bei Sapient. Es war ein Vergnügen, mit ihm zu arbeiten. Er hat Fähigkeiten und Engagement zur Erfüllung der festgelegten Ziele. Er hat eine unglaubliche Fähigkeit, verschiedene Rollen zu übernehmen und das gewünschte Ergebnis leicht zu erzielen.”",
         },
       ],
     },
   },
 }
-
-export type Language = keyof typeof translations
-export type TranslationKeys = keyof (typeof translations)["en"]
