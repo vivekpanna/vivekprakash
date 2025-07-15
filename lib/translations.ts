@@ -324,6 +324,69 @@ export const translations = {
     navEducation: "Education",
     navTools: "Tools",
     navLanguages: "Languages",
+    navReferences: "References",
+    references: {
+      interimReference: {
+        title: "Interim Reference from AFC Claims GmbH",
+        summary: `Mr. Vivek Prakash Rai, born on February 17, 1980, has been employed with AFC Claims GmbH since March 1, 2020, in various positions, currently as Head of Product in the IT Product Management department. AFC Claims GmbH is a service company specializing in the complete claims processing for commercially used vehicle fleets, being the market leader in Germany with over 90,000 claims processed annually.
+
+During his tenure, Mr. Prakash Rai has been entrusted with disciplinary and technical leadership of the team, building and supporting the product team (including personnel management), establishing and integrating key IT systems for Nobleglass GmbH & Co. KG, setting up an IT support system, developing product strategies and roadmaps for Nobleglass GmbH & Co. KG and Auto Fleet Control GmbH, contributing to the product design of internal systems, designing the early phases of the BI system, conducting contract negotiations with partners, suppliers, and customers, modernizing in-house legacy systems, defining KPIs and success factors for new product launches, establishing prioritization processes for the company's product and IT service portfolio, and leading various digital transformation, integration, and migration activities, as well as project management activities.
+
+Mr. Prakash Rai possesses excellent and very deep expertise, which he consistently applies to our company in a highly profitable manner. Due to his excellent comprehension, he is always able to immediately grasp even difficult situations accurately and quickly find excellent solutions. Mr. Prakash Rai is an always exceptionally committed employee who consistently stands out primarily due to his extraordinary willingness to perform and exceptional dedication. Even in situations with the highest workload, he consistently proves to be exceptionally resilient.
+
+He performs all tasks completely independently, extremely carefully, and thoughtfully. He always acts calmly, deliberately, goal-oriented, and with the highest degree of precision. In doing so, he consistently impresses in a special way both qualitatively and quantitatively. His absolute and unrestricted reliability and honesty are particularly noteworthy.
+
+He finds very effective solutions even for the most difficult problems, which he always successfully implements in practice, thereby consistently achieving excellent work results. His outstanding social competence is also to be highlighted. Due to his leadership qualities, he is highly recognized and popular as a superior. He always behaves openly and collegially towards his employees but nevertheless knows how to assert himself in difficult situations and motivate employees to optimal performance. Mr. Prakash Rai's performance receives our unreserved and in every respect fullest recognition.
+
+He is universally highly esteemed for his consistently friendly and balanced nature. He is always helpful, courteous, and, if necessary, puts personal interests aside. His behavior towards superiors, colleagues, and customers is without exception exemplary and loyal.
+
+The reason for issuing this interim reference is Mr. Prakash Rai's request. We thank him for his consistently very good performance in the employment relationship to date and wish him continued success and all the best.
+
+Hamburg, December 12, 2024
+AFC Claims GmbH
+Daniele Baldino
+Managing Director
+AFC Claims GmbH`,
+      },
+      linkedinRecommendations: [
+        {
+          name: "Garrick Simeon",
+          relationship: "Managed Vivek directly",
+          date: "August 5, 2020",
+          text: "Vivek came to work for me as a delivery manager of software development teams during the bedding in of a companywide agile transformation. There were many challenges Vivek defined and resolved using his experience and mentoring approach combined with an acute understanding of process management. Many of the systems in operation required adjustment to align with the other parts of the organisation to provide clarity on delivery time frames and usable MVP’s. Vivek is a trustworthy, diligent, experienced delivery and product manager, that understands the important of software development limitations and the business need for actionable and relevant information. His contribution translated into actionable business outcomes. I wholeheartedly recommend Vivek as a highly skilled, respectful, and trustworthy delivery and product manger to any company that values professional commitment with a salient understanding of what a business needs to succeed.",
+        },
+        {
+          name: "Alex Sloley",
+          relationship: "Senior to Vivek but didn't manage Vivek directly",
+          date: "August 20, 2017",
+          text: "Vivek is a diligent and thoughtful leader who inspires calm and cohesiveness on his teams. His pragmatic approach emphasizes the value of people and not just blind adherence to process. He has a solid grasp of fundamental management principles and executes a variety of practices with expertise. Vivek is a leader that I have come to deeply respect and admire. I would be honored to work with him again.",
+        },
+        {
+          name: "Daniel Rea",
+          relationship: "Worked with Vivek but on different teams",
+          date: "May 16, 2017",
+          text: "Vivek has a remarkable ability to simultaneously operate at both low and high levels. By that I mean he's happy to get his hands dirty with technical issues, Continuous Integration systems, Issue Tracking systems, Software Licensing systems, and collaborating with his team to overcome any blockers; yet at the same time he has a shrewd understanding of the business position, all company deliverables, and distant risks. He's cares about his people, and he knows their skill-sets (and how best to bring them to bear). He smoothly transitions between technical and non-technical language to suit the situation, communicating with precision and without bias to various stakeholders and team members alike. With superb planning and organisational skills, and a pleasant and unshakeable disposition, Vivek is a pleasure to work with and definitely someone I'd recommend to any organisation.",
+        },
+        {
+          name: "RaviKiran Perumalla",
+          relationship: "Reported directly to Vivek",
+          date: "January 6, 2016",
+          text: "Me and Vivek were part of the long journey in the design tools team and I saw him in many different roles. He was best in his all roles he did at Schneider and has the best knowledge on all the products our team has. He is the best decision maker when the team is in confusion. He handled many tough situations by driving the team towards the goal. He understand the team members needs and tries to solve their problems with his best abilities. He can recognise the talent and encourage them to reach their goals in his career. I recommend him for any organisation for any of the roles he wants to perform.",
+        },
+        {
+          name: "Anoop jha",
+          relationship: "Reported directly to Vivek",
+          date: "June 21, 2008",
+          text: "Vivek is a fun loving, disciplined and managed person. The best part which I liked about him was handling issues in the project. I found him to be the best in difficult situations. He was a good team leader and mentor for me.",
+        },
+        {
+          name: "Manjunath M Shringeshwara",
+          relationship: "Reported directly to Vivek",
+          date: "May 23, 2008",
+          text: "“Vivek is a man of high commitment and with great leadership qualities. He is a great team player and wonderful friend, He was both my mentor and my lead in Sapient. It was a pleasure to work with him,He has capability and commitment to achieve the set goals .He has a uncanny ability to perform different roles ,and achieving the desired result with ease .”",
+        },
+      ],
+    },
   },
   de: {
     name: "Vivek Prakash",
@@ -650,6 +713,70 @@ export const translations = {
     navEducation: "Ausbildung",
     navTools: "Tools",
     navLanguages: "Sprachen",
+    navReferences: "Referenzen",
+    references: {
+      interimReference: {
+        title: "Zwischenzeugnis von AFC Claims GmbH",
+        summary: `Herr Vivek Prakash Rai, geboren am 17.02.1980, ist seit dem 01.03.2020 in unserem Unternehmen in verschiedenen Positionen, derzeit als Head of Product in der Abteilung IT Product Management tätig. Die AFC Claims GmbH ist ein Dienstleistungsunternehmen, das insbesondere die komplette Schadenabwicklung für gewerblich genutzte Kfz-Flotten übernimmt. Mit jährlich mehr als 90.000 abgewickelten Schäden ist AFC in Deutschland Marktführer.
+
+Während seiner Tätigkeit ist Herr Prakash Rai mit folgenden Aufgaben betraut:
+Disziplinarische und fachliche Führung des Teams, Aufbau und Betreuung des Produktteams (einschließlich Personalmanagement), Aufbau und Integration der wichtigsten IT-Systeme für die Tochtergesellschaft Nobleglass GmbH & Co. KG, Einrichtung eines IT-Unterstützungssystems, Entwicklung von Produktstrategien und Fahrplänen für Nobleglass GmbH & Co. KG und Auto Fleet Control GmbH, Mitwirkung an der Produktgestaltung von internen Systemen, Entwurf der frühen Phasen des BI-Systems, Vertragsverhandlungen mit Partnern, Lieferanten und Kunden, Modernisierung von hausinternen Altsystemen, Definition von KPIs und Erfolgsfaktoren für neue Produkteinführungen, Festlegung von Priorisierungsprozessen für das Produkt- und IT-Dienstleistungsportfolio des Unternehmens, Leitung verschiedener Maßnahmen zur digitalen Transformation, Integration und Migration, Aktivitäten im Bereich Projektmanagement.
+
+Herr Prakash Rai verfügt über ein hervorragendes und auch in Randbereichen sehr tiefgehendes Fachwissen, welches er in unser Unternehmen stets in höchst gewinnbringender Weise einbringt. Aufgrund seiner ausgezeichneten Auffassungsgabe ist er jederzeit in der Lage, auch schwierige Situationen sofort zutreffend zu erfassen und schnell exzellente Lösungen zu finden. Herr Prakash Rai ist ein immer überaus engagierter Mitarbeiter, der stets vor allem durch seine außergewöhnliche Leistungsbereitschaft und außerordentliche Einsatzbereitschaft herausragt. Auch in Situationen mit größtem Arbeitsaufkommen erweist er sich dauerhaft als außergewöhnlich belastbar.
+
+Alle Aufgaben führt er jederzeit vollkommen selbstständig, äußerst sorgfältig und planvoll durchdacht aus. Er agiert immer ruhig, überlegt, zielorientiert und in höchstem Maße präzise. Dabei überzeugt er stets in besonderer Weise sowohl in qualitativer als auch in quantitativer Hinsicht. Besonders hervorzuheben sind seine absolute und uneingeschränkte Zuverlässigkeit und Ehrlichkeit.
+
+Auch für schwierigste Problemstellungen findet er sehr effektive Lösungen, die er jederzeit erfolgreich in die Praxis umsetzt und damit immer ausgezeichnete Arbeitsergebnisse erzielt. Hervorzuheben ist außerdem seine hervorragende soziale Kompetenz. Aufgrund seiner Führungsqualitäten ist er als Vorgesetzter in hohem Maße anerkannt und beliebt. Er verhält sich seinen Mitarbeiterinnen und Mitarbeitern gegenüber stets offen und kollegial, versteht es aber dennoch, sich in schwierigen Situationen durchzusetzen und die Mitarbeiterinnen und Mitarbeiter zu optimalem Einsatz zu motivieren. Die Leistungen von Herrn Prakash Rai finden ausnahmslos und in jeder Beziehung unsere vollste Anerkennung.
+
+Er wird wegen seines konstant freundlichen und ausgeglichenen Wesens allseits sehr geschätzt. Er ist immer hilfsbereit, zuvorkommend und stellt, falls erforderlich, auch persönliche Interessen zurück. Sein Verhalten gegenüber Vorgesetzten, Kolleginnen und Kollegen sowie Kundinnen und Kunden ist ausnahmslos vorbildlich und loyal.
+
+Grund für die Ausstellung dieses Zwischenzeugnisses ist der Wunsch von Herrn Prakash Rai. Wir bedanken uns bei ihm für die im bisherigen Arbeitsverhältnis erbrachten stets sehr guten Leistungen und wünschen weiterhin viel Erfolg und alles Gute.
+
+Hamburg, 12.12.2024
+AFC Claims GmbH
+Daniele Baldino
+Geschäftsführer
+AFC Claims GmbH`,
+      },
+      linkedinRecommendations: [
+        {
+          name: "Garrick Simeon",
+          relationship: "Managed Vivek directly",
+          date: "August 5, 2020",
+          text: "Vivek came to work for me as a delivery manager of software development teams during the bedding in of a companywide agile transformation. There were many challenges Vivek defined and resolved using his experience and mentoring approach combined with an acute understanding of process management. Many of the systems in operation required adjustment to align with the other parts of the organisation to provide clarity on delivery time frames and usable MVP’s. Vivek is a trustworthy, diligent, experienced delivery and product manager, that understands the important of software development limitations and the business need for actionable and relevant information. His contribution translated into actionable business outcomes. I wholeheartedly recommend Vivek as a highly skilled, respectful, and trustworthy delivery and product manger to any company that values professional commitment with a salient understanding of what a business needs to succeed.",
+        },
+        {
+          name: "Alex Sloley",
+          relationship: "Senior to Vivek but didn't manage Vivek directly",
+          date: "August 20, 2017",
+          text: "Vivek is a diligent and thoughtful leader who inspires calm and cohesiveness on his teams. His pragmatic approach emphasizes the value of people and not just blind adherence to process. He has a solid grasp of fundamental management principles and executes a variety of practices with expertise. Vivek is a leader that I have come to deeply respect and admire. I would be honored to work with him again.",
+        },
+        {
+          name: "Daniel Rea",
+          relationship: "Worked with Vivek but on different teams",
+          date: "May 16, 2017",
+          text: "Vivek has a remarkable ability to simultaneously operate at both low and high levels. By that I mean he's happy to get his hands dirty with technical issues, Continuous Integration systems, Issue Tracking systems, Software Licensing systems, and collaborating with his team to overcome any blockers; yet at the same time he has a shrewd understanding of the business position, all company deliverables, and distant risks. He's cares about his people, and he knows their skill-sets (and how best to bring them to bear). He smoothly transitions between technical and non-technical language to suit the situation, communicating with precision and without bias to various stakeholders and team members alike. With superb planning and organisational skills, and a pleasant and unshakeable disposition, Vivek is a pleasure to work with and definitely someone I'd recommend to any organisation.",
+        },
+        {
+          name: "RaviKiran Perumalla",
+          relationship: "Reported directly to Vivek",
+          date: "January 6, 2016",
+          text: "Me and Vivek were part of the long journey in the design tools team and I saw him in many different roles. He was best in his all roles he did at Schneider and has the best knowledge on all the products our team has. He is the best decision maker when the team is in confusion. He handled many tough situations by driving the team towards the goal. He understand the team members needs and tries to solve their problems with his best abilities. He can recognise the talent and encourage them to reach their goals in his career. I recommend him for any organisation for any of the roles he wants to perform.",
+        },
+        {
+          name: "Anoop jha",
+          relationship: "Reported directly to Vivek",
+          date: "June 21, 2008",
+          text: "Vivek is a fun loving, disciplined and managed person. The best part which I liked about him was handling issues in the project. I found him to be the best in difficult situations. He was a good team leader and mentor for me.",
+        },
+        {
+          name: "Manjunath M Shringeshwara",
+          relationship: "Reported directly to Vivek",
+          date: "May 23, 2008",
+          text: "“Vivek is a man of high commitment and with great leadership qualities. He is a great team player and wonderful friend, He was both my mentor and my lead in Sapient. It was a pleasure to work with him,He has capability and commitment to achieve the set goals .He has a uncanny ability to perform different roles ,and achieving the desired result with ease .”",
+        },
+      ],
+    },
   },
 }
 

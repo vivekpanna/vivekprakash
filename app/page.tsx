@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Download, Linkedin, Mail, Phone, CalendarDays, ChevronDown, Briefcase, FolderOpen } from "lucide-react"
+import { Download, Linkedin, Mail, Phone, CalendarDays, ChevronDown, Briefcase, FolderOpen, Quote } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { translations, type Language } from "@/lib/translations"
@@ -68,6 +68,7 @@ export default function ProfilePage() {
     { id: "education", label: t.navEducation },
     { id: "tools", label: t.navTools },
     { id: "languages", label: t.navLanguages },
+    { id: "references", label: t.navReferences }, // Added References to navigation
   ]
 
   return (
@@ -346,6 +347,45 @@ export default function ProfilePage() {
                 <li key={index}>{lang}</li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
+
+        {/* References Section */}
+        <section id="references" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.navReferences}</h2>
+          <Card className="mb-8 shadow-lg bg-white border border-gray-200">
+            <CardHeader>
+              <CardTitle className="text-2xl text-primary">{t.references.interimReference.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+              {t.references.interimReference.summary}
+            </CardContent>
+          </Card>
+
+          <h3 className="text-3xl font-bold text-gray-900 mb-6 mt-12 text-center md:text-left">
+            LinkedIn Recommendations
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {t.references.linkedinRecommendations.map((rec, index) => (
+              <Card
+                key={index}
+                className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
+              >
+                <CardHeader className="flex flex-row items-start gap-4 p-0 pb-4">
+                  <Quote className="h-8 w-8 text-primary flex-shrink-0" />
+                  <div className="flex flex-col">
+                    <CardTitle className="text-xl text-primary">{rec.name}</CardTitle>
+                    <p className="text-sm text-gray-600">{rec.relationship}</p>
+                    <p className="text-sm text-gray-500">{rec.date}</p>
+                  </div>
+                </CardHeader>
+                <CardContent className="text-gray-700 leading-relaxed p-0">
+                  <p>{rec.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
       </main>
