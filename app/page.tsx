@@ -4,19 +4,16 @@ import { useState, useEffect } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Download, Linkedin, Mail, Phone, CalendarDays, Globe, ChevronDown } from "lucide-react"
+import { Download, Linkedin, Mail, Phone, CalendarDays, ChevronDown } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { translations, type Language } from "@/lib/translations"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { cn } from "@/lib/utils" // Import cn for conditional class names
 
 export default function ProfilePage() {
   const [language, setLanguage] = useState<Language>("en")
-  const [activeTab, setActiveTab] = useState("about") // State for custom tabs
   const t = translations[language]
 
   useEffect(() => {
@@ -61,23 +58,16 @@ export default function ProfilePage() {
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/90 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
-          {/* Desktop Navigation - Custom Tabs */}
-          <nav className="hidden md:flex flex-1 justify-center">
-            <div className="flex space-x-1 rounded-md bg-muted p-1">
-              {navItems.map((item) => (
-                <Button
-                  key={item.id}
-                  variant="ghost"
-                  onClick={() => setActiveTab(item.id)}
-                  className={cn(
-                    "px-3 py-1.5 text-sm font-medium rounded-sm transition-all",
-                    activeTab === item.id ? "bg-primary text-primary-foreground shadow-sm" : "hover:bg-muted/50",
-                  )}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </div>
+          <nav className="hidden md:flex gap-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                href={`#${item.id}`}
+                className="text-gray-600 hover:text-primary font-medium transition-colors duration-200"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           <div className="flex items-center gap-4 ml-auto">
             <LanguageSwitcher onLanguageChange={handleLanguageChange} currentLanguage={language} />
@@ -133,222 +123,190 @@ export default function ProfilePage() {
 
         <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
 
-        {/* Mobile Navigation - Custom Tabs (can be a dropdown for better UX on small screens) */}
-        <div className="md:hidden mb-8">
-          <div className="flex flex-wrap justify-center gap-2 rounded-md bg-muted p-1">
-            {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                onClick={() => setActiveTab(item.id)}
-                className={cn(
-                  "px-3 py-1.5 text-sm font-medium rounded-sm transition-all",
-                  activeTab === item.id ? "bg-primary text-primary-foreground shadow-sm" : "hover:bg-muted/50",
-                )}
+        {/* About Me Section */}
+        <section id="about" className="mb-16 text-center md:text-left">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8">{t.aboutMe}</h2>
+          <div className="bg-white rounded-xl shadow-md p-8 text-lg text-gray-700 leading-relaxed border border-gray-200">
+            <p className="mb-4">{t.aboutMeContent1}</p>
+            <p>{t.aboutMeContent2}</p>
+          </div>
+        </section>
+
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
+
+        {/* Key Achievements Section */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.keyAchievements}</h2>
+          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
+            <ul className="list-disc list-inside space-y-3 text-lg text-gray-700">
+              {t.achievementsList.map((achievement, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="text-primary mt-1">
+                    <ChevronDown className="w-4 h-4 rotate-90" />
+                  </span>
+                  {achievement}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
+
+        {/* Experience Section */}
+        <section id="experience" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.professionalJourney}</h2>
+          <Accordion type="single" collapsible className="w-full">
+            {t.experience.map((exp, index) => (
+              <Card
+                key={index}
+                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
               >
-                {item.label}
-              </Button>
+                <AccordionItem value={`item-${index}`}>
+                  <AccordionTrigger className="p-6 text-left hover:no-underline">
+                    <div className="flex flex-col items-start">
+                      <h3 className="text-xl font-semibold text-primary">{exp.title}</h3>
+                      <p className="text-md text-gray-600">
+                        {exp.company} {exp.location && `| ${exp.location}`} | {exp.duration}
+                      </p>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="p-6 pt-0">
+                    <ul className="list-disc list-inside space-y-2 text-gray-700">
+                      {exp.description.map((desc, descIndex) => (
+                        <li key={descIndex}>{desc}</li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              </Card>
+            ))}
+          </Accordion>
+        </section>
+
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
+
+        {/* Expertise Section */}
+        <section id="expertise" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.coreExpertise}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {t.expertiseCategories.map((category, index) => (
+              <Card
+                key={index}
+                className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
+              >
+                <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
+                      className={`${getBadgeColorClass(category.color)} text-sm px-3 py-1 rounded-full`}
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Content Sections based on activeTab */}
-        {activeTab === "about" && (
-          <>
-            <section id="about" className="mb-16 text-center md:text-left">
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">{t.aboutMe}</h2>
-              <div className="bg-white rounded-xl shadow-md p-8 text-lg text-gray-700 leading-relaxed border border-gray-200">
-                <p className="mb-4">{t.aboutMeContent1}</p>
-                <p>{t.aboutMeContent2}</p>
-              </div>
-            </section>
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
 
-            <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-            <section className="mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.keyAchievements}</h2>
-              <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
-                <ul className="list-disc list-inside space-y-3 text-lg text-gray-700">
-                  {t.achievementsList.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">
-                        <ChevronDown className="w-4 h-4 rotate-90" />
-                      </span>
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          </>
-        )}
-
-        {activeTab === "experience" && (
-          <section id="experience" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.professionalJourney}</h2>
-            <Accordion type="single" collapsible className="w-full">
-              {t.experience.map((exp, index) => (
-                <Card
-                  key={index}
-                  className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
-                >
-                  <AccordionItem value={`item-${index}`}>
-                    <AccordionTrigger className="p-6 text-left hover:no-underline">
-                      <div className="flex flex-col items-start">
-                        <h3 className="text-xl font-semibold text-primary">{exp.title}</h3>
-                        <p className="text-md text-gray-600">
-                          {exp.company} {exp.location && `| ${exp.location}`} | {exp.duration}
-                        </p>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="p-6 pt-0">
-                      <ul className="list-disc list-inside space-y-2 text-gray-700">
-                        {exp.description.map((desc, descIndex) => (
-                          <li key={descIndex}>{desc}</li>
-                        ))}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Card>
-              ))}
-            </Accordion>
-          </section>
-        )}
-
-        {activeTab === "expertise" && (
-          <section id="expertise" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.coreExpertise}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {t.expertiseCategories.map((category, index) => (
-                <Card
-                  key={index}
-                  className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
-                >
-                  <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skillIndex}
-                        variant="secondary"
-                        className={`${getBadgeColorClass(category.color)} text-sm px-3 py-1 rounded-full`}
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {activeTab === "portfolio" && (
-          <section id="portfolio" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.showcaseOfWork}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {t.portfolioItems.map((item, index) => (
-                <Card
-                  key={index}
-                  className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200 group"
-                >
-                  <div className="relative w-full h-48 overflow-hidden">
-                    <Image
-                      src={`/placeholder.svg?height=200&width=400&text=Project%20${index + 1}`}
-                      width={400}
-                      height={200}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <h3 className="text-white text-lg font-semibold">{item.title}</h3>
+        {/* Portfolio Section - Now interactive with Accordion */}
+        <section id="portfolio" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.showcaseOfWork}</h2>
+          <Accordion type="single" collapsible className="w-full">
+            {t.portfolioItems.map((item, index) => (
+              <Card
+                key={index}
+                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
+              >
+                <AccordionItem value={`item-${index}`}>
+                  <AccordionTrigger className="p-6 text-left hover:no-underline">
+                    <div className="flex flex-col items-start">
+                      <h3 className="text-xl font-semibold text-primary">{item.title}</h3>
+                      <p className="text-md text-gray-600">{item.description}</p>
                     </div>
-                  </div>
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-xl text-primary">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-gray-700 mb-4">{item.description}</p>
-                    <Link href={item.link} target="_blank" rel="noopener noreferrer">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="gap-2 border-primary text-primary hover:bg-primary/10 bg-transparent transition-all duration-200 hover:scale-105"
-                      >
-                        <Globe className="w-4 h-4" /> {item.linkText}
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {activeTab === "education" && (
-          <section id="education" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">
-              {t.educationCertifications}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200">
-                <CardTitle className="text-xl mb-4 text-primary">Education</CardTitle>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  {t.educationList.map((edu, index) => (
-                    <li key={index}>{edu}</li>
-                  ))}
-                </ul>
+                  </AccordionTrigger>
+                  <AccordionContent className="p-6 pt-0">
+                    <p className="text-gray-700">{item.longDescription}</p>
+                  </AccordionContent>
+                </AccordionItem>
               </Card>
-              <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200">
-                <CardTitle className="text-xl mb-4 text-primary">Certifications</CardTitle>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  {t.certificationsList.map((cert, index) => (
-                    <li key={index}>{cert}</li>
-                  ))}
-                </ul>
-              </Card>
-            </div>
-          </section>
-        )}
+            ))}
+          </Accordion>
+        </section>
 
-        {activeTab === "tools" && (
-          <section id="tools" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.toolsMethods}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {t.toolsCategories.map((category, index) => (
-                <Card
-                  key={index}
-                  className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
-                >
-                  <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2">
-                    {category.items.map((item, itemIndex) => (
-                      <Badge
-                        key={itemIndex}
-                        variant="secondary"
-                        className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
-                      >
-                        {item}
-                      </Badge>
-                    ))}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </section>
-        )}
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
 
-        {activeTab === "languages" && (
-          <section id="languages" className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.languageKnowledge}</h2>
-            <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
-              <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
-                {t.languages.map((lang, index) => (
-                  <li key={index}>{lang}</li>
+        {/* Education & Certifications Section */}
+        <section id="education" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">
+            {t.educationCertifications}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200">
+              <CardTitle className="text-xl mb-4 text-primary">Education</CardTitle>
+              <ul className="list-disc list-inside space-y-2 text-gray-700">
+                {t.educationList.map((edu, index) => (
+                  <li key={index}>{edu}</li>
                 ))}
               </ul>
-            </div>
-          </section>
-        )}
+            </Card>
+            <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200">
+              <CardTitle className="text-xl mb-4 text-primary">Certifications</CardTitle>
+              <ul className="list-disc list-inside space-y-2 text-gray-700">
+                {t.certificationsList.map((cert, index) => (
+                  <li key={index}>{cert}</li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        </section>
+
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
+
+        {/* Tools & Methods Section */}
+        <section id="tools" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.toolsMethods}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {t.toolsCategories.map((category, index) => (
+              <Card
+                key={index}
+                className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
+              >
+                <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
+                <div className="flex flex-wrap gap-2">
+                  {category.items.map((item, itemIndex) => (
+                    <Badge
+                      key={itemIndex}
+                      variant="secondary"
+                      className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
+                    >
+                      {item}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
+
+        {/* Language Knowledge Section */}
+        <section id="languages" className="mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.languageKnowledge}</h2>
+          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
+            <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
+              {t.languages.map((lang, index) => (
+                <li key={index}>{lang}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
