@@ -4,16 +4,32 @@ import { useState, useEffect } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Download, Linkedin, Mail, Phone, CalendarDays, ChevronDown } from "lucide-react"
+import { Download, Linkedin, Mail, Phone, CalendarDays, ChevronDown, Briefcase, FolderOpen } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { translations, type Language } from "@/lib/translations"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+interface PortfolioItem {
+  title: string
+  description: string
+  longDescription: string
+}
 
 export default function ProfilePage() {
   const [language, setLanguage] = useState<Language>("en")
+  const [selectedPortfolioItem, setSelectedPortfolioItem] = useState<PortfolioItem | null>(null)
   const t = translations[language]
 
   useEffect(() => {
@@ -153,25 +169,26 @@ export default function ProfilePage() {
 
         <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
 
-        {/* Experience Section */}
+        {/* Experience Section - Enhanced Accordion */}
         <section id="experience" className="mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.professionalJourney}</h2>
           <Accordion type="single" collapsible className="w-full">
             {t.experience.map((exp, index) => (
               <Card
                 key={index}
-                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
+                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden"
               >
                 <AccordionItem value={`item-${index}`}>
-                  <AccordionTrigger className="p-6 text-left hover:no-underline">
-                    <div className="flex flex-col items-start">
+                  <AccordionTrigger className="p-6 text-left hover:no-underline flex items-center gap-4">
+                    <Briefcase className="h-8 w-8 text-primary flex-shrink-0" />
+                    <div className="flex flex-col items-start flex-grow">
                       <h3 className="text-xl font-semibold text-primary">{exp.title}</h3>
                       <p className="text-md text-gray-600">
                         {exp.company} {exp.location && `| ${exp.location}`} | {exp.duration}
                       </p>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="p-6 pt-0">
+                  <AccordionContent className="p-6 pt-0 bg-gray-50 border-t border-gray-100">
                     <ul className="list-disc list-inside space-y-2 text-gray-700">
                       {exp.description.map((desc, descIndex) => (
                         <li key={descIndex}>{desc}</li>
@@ -214,29 +231,53 @@ export default function ProfilePage() {
 
         <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
 
-        {/* Portfolio Section - Now interactive with Accordion */}
+        {/* Portfolio Section - Grid with Dialog */}
         <section id="portfolio" className="mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.showcaseOfWork}</h2>
-          <Accordion type="single" collapsible className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {t.portfolioItems.map((item, index) => (
-              <Card
-                key={index}
-                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
-              >
-                <AccordionItem value={`item-${index}`}>
-                  <AccordionTrigger className="p-6 text-left hover:no-underline">
-                    <div className="flex flex-col items-start">
-                      <h3 className="text-xl font-semibold text-primary">{item.title}</h3>
-                      <p className="text-md text-gray-600">{item.description}</p>
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200 group cursor-pointer">
+                    <div className="relative w-full h-48 overflow-hidden">
+                      <Image
+                        src={`/placeholder.svg?height=200&width=400&text=Project%20${index + 1}`}
+                        width={400}
+                        height={200}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <h3 className="text-white text-lg font-semibold">{item.title}</h3>
+                      </div>
                     </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 pt-0">
-                    <p className="text-gray-700">{item.longDescription}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Card>
+                    <CardHeader className="pb-4">
+                      <CardTitle className="text-xl text-primary">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-gray-700 mb-4">{item.description}</p>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="gap-2 border-primary text-primary hover:bg-primary/10 bg-transparent transition-all duration-200 hover:scale-105"
+                      >
+                        <FolderOpen className="w-4 h-4" /> View Details
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[800px] p-6">
+                  <DialogHeader>
+                    <DialogTitle className="text-3xl font-bold text-primary">{item.title}</DialogTitle>
+                    <DialogDescription className="text-lg text-gray-700 mt-2">{item.description}</DialogDescription>
+                  </DialogHeader>
+                  <div className="mt-4 text-gray-800 leading-relaxed max-h-[60vh] overflow-y-auto pr-4">
+                    <p>{item.longDescription}</p>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
-          </Accordion>
+          </div>
         </section>
 
         <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
