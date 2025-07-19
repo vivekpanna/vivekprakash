@@ -259,7 +259,7 @@ export default function ProfilePage() {
                   <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200 group cursor-pointer">
                     <div className="relative w-full h-48 overflow-hidden">
                       <Image
-                        src={`/placeholder.svg?height=200&width=400&text=Project%20${index + 1}`}
+                        src={`/credit-risk.jpg?height=200&width=400&text=Project%20${index + 1}`}
                         width={400}
                         height={200}
                         alt={item.title}
