@@ -219,13 +219,16 @@ export const translations = {
           "An in-depth strategic discussion and analytical framework for identifying and mitigating loan credibility risks.",
         longDescription:
           "This project involved a comprehensive strategic analysis of various factors contributing to loan credibility risks, including macroeconomic indicators, borrower financial health, and evolving market trends. The discussion focused on developing predictive models and robust risk mitigation strategies, providing actionable insights for financial institutions to build resilient credit assessment frameworks. Key strategic considerations included the impact of global economic shifts on loan defaults, leveraging advanced data analytics for proactive identification of high-risk applicants, and implementing dynamic risk scoring systems to ensure long-term financial stability and regulatory compliance.",
-      },
+        imageUrl: "/project1.jpg"
+        },
       {
         title: "Architecting a Scalable Travel Portal",
         description:
           "A detailed architectural blueprint and strategic discussion for building a high-performance, scalable travel portal.",
         longDescription:
           "This initiative centered on designing a highly scalable and resilient architectural blueprint for a modern travel portal. The strategic discussion encompassed a microservices-based design approach, seamless API integrations with a multitude of global travel providers (flights, hotels, car rentals), and the implementation of robust, fault-tolerant database solutions. Critical considerations included optimizing for high availability, enabling real-time data processing for dynamic pricing strategies, and ensuring secure, compliant payment gateways. The architecture was specifically engineered to address scalability challenges during peak traffic periods and to facilitate the future integration of AI for hyper-personalized user experiences and recommendations.",
+        imageUrl: "/project2.jpg"
+      
       },
       {
         title: "Product Leadership: B2B2C Smart Mobility SaaS Platform",
