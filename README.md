@@ -47,6 +47,7 @@ To host both on a single Render Web Service:
    | `/*`   | `/portfolio/$1` | _Rewrite_ |
 
    Attach the rule to the `portfolio.vivekprakash.de` custom domain only. The middleware ensures direct navigations, deep links, and asset requests resolve correctly.
-4. **Deploy once.** Redeploy (or trigger a manual deploy) so the middleware and domain configuration take effect.
+4. **Optional: configure cross-links.** The portfolio header links back to the main site. If your apex domain differs, set `NEXT_PUBLIC_HOME_ORIGIN` (for example `https://example.com`) so the link resolves correctly in production.
+5. **Deploy once.** Redeploy (or trigger a manual deploy) so the middleware and domain configuration take effect.
 
 Visitors hitting `vivekprakash.de` stay on the landing page, while anyone using `portfolio.vivekprakash.de` is seamlessly served the portfolio without maintaining two separate codebases.

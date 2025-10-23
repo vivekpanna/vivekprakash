@@ -3,13 +3,24 @@ import type { NextRequest } from "next/server";
 
 const DEFAULT_PORTFOLIO_HOST = "portfolio.vivekprakash.de";
 
+function normaliseHost(rawHost: string) {
+  const [hostWithoutPort] = rawHost.split(":");
+  try {
+    const asUrl = new URL(hostWithoutPort.includes("//") ? hostWithoutPort : `https://${hostWithoutPort}`);
+    return asUrl.hostname.toLowerCase();
+  } catch {
+    return hostWithoutPort.toLowerCase();
+  }
+}
+
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host")?.toLowerCase();
-  if (!host) {
+  const hostHeader = request.headers.get("host");
+  if (!hostHeader) {
     return NextResponse.next();
   }
 
-  const portfolioHost = (process.env.PORTFOLIO_HOST ?? DEFAULT_PORTFOLIO_HOST).toLowerCase();
+  const host = normaliseHost(hostHeader);
+  const portfolioHost = normaliseHost(process.env.PORTFOLIO_HOST ?? DEFAULT_PORTFOLIO_HOST);
 
   if (host === portfolioHost) {
     const url = request.nextUrl.clone();

@@ -29,13 +29,22 @@ interface PortfolioItem {
 }
 
 export default function ProfilePage() {
+  const envHomeOrigin = process.env.NEXT_PUBLIC_HOME_ORIGIN
+  const [homeHref, setHomeHref] = useState(envHomeOrigin ?? "https://vivekprakash.de")
   const [language, setLanguage] = useState<Language>("en")
   const [selectedPortfolioItem, setSelectedPortfolioItem] = useState<PortfolioItem | null>(null)
   const t = translations[language]
 
   useEffect(() => {
-    // You could try to detect browser language here or load from localStorage
-    // For now, it defaults to 'en'
+    if (envHomeOrigin || typeof window === "undefined") {
+      return
+    }
+    const { protocol, host } = window.location
+    const apexHost = host.replace(/^portfolio\./i, "")
+    setHomeHref(`${protocol}//${apexHost}`)
+  }, [envHomeOrigin])
+
+  useEffect(() => {
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && translations[savedLanguage]) {
       setLanguage(savedLanguage)
@@ -85,10 +94,11 @@ export default function ProfilePage() {
       <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/90 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 p-4">
           <Link
-            href="https://vivekprakash.de"
+            href={homeHref}
+            prefetch={false}
             className="text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary/80"
           >
-            ← Back to vivekprakash.de
+            ← Back to home
           </Link>
           <nav className="hidden flex-1 items-center justify-center gap-6 md:flex">
             {navItems.map((item) => (
