@@ -29,22 +29,13 @@ interface PortfolioItem {
 }
 
 export default function ProfilePage() {
-  const envHomeOrigin = process.env.NEXT_PUBLIC_HOME_ORIGIN
-  const [homeHref, setHomeHref] = useState(envHomeOrigin ?? "https://vivekprakash.de")
   const [language, setLanguage] = useState<Language>("en")
   const [selectedPortfolioItem, setSelectedPortfolioItem] = useState<PortfolioItem | null>(null)
   const t = translations[language]
 
   useEffect(() => {
-    if (envHomeOrigin || typeof window === "undefined") {
-      return
-    }
-    const { protocol, host } = window.location
-    const apexHost = host.replace(/^portfolio\./i, "")
-    setHomeHref(`${protocol}//${apexHost}`)
-  }, [envHomeOrigin])
-
-  useEffect(() => {
+    // You could try to detect browser language here or load from localStorage
+    // For now, it defaults to 'en'
     const savedLanguage = localStorage.getItem("language") as Language
     if (savedLanguage && translations[savedLanguage]) {
       setLanguage(savedLanguage)
@@ -92,15 +83,8 @@ export default function ProfilePage() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-foreground">
       <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 p-4">
-          <Link
-            href={homeHref}
-            prefetch={false}
-            className="text-sm font-semibold text-primary transition-colors duration-200 hover:text-primary/80"
-          >
-            ← Back to home
-          </Link>
-          <nav className="hidden flex-1 items-center justify-center gap-6 md:flex">
+        <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+          <nav className="hidden md:flex gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -111,7 +95,7 @@ export default function ProfilePage() {
               </Link>
             ))}
           </nav>
-          <div className="ml-auto flex items-center gap-4">
+          <div className="flex items-center gap-4 ml-auto">
             <LanguageSwitcher onLanguageChange={handleLanguageChange} currentLanguage={language} />
           </div>
         </div>
