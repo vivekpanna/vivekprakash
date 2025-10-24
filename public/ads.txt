@@ -1,0 +1,2 @@
+# ads.txt for vivekprakash.de
+# Update this file with your authorized digital sellers list.
