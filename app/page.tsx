@@ -52,6 +52,12 @@ const collaborations = [
   "Non-profits",
 ]
 
+const navItems = [
+  { label: "Overview", href: "#overview" },
+  { label: "Collaborations", href: "#collaborations" },
+  { label: "Contact", href: "#contact" },
+]
+
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
@@ -89,7 +95,7 @@ export default function LandingPage() {
       </header>
 
       <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-16">
-        <section className="grid gap-12 md:grid-cols-[1.4fr,1fr] md:items-center">
+        <section id="overview" className="grid gap-12 md:grid-cols-[1.4fr,1fr] md:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-white/70">
               <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
@@ -143,7 +149,10 @@ export default function LandingPage() {
           ))}
         </section>
 
-        <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-white/10 p-10">
+        <section
+          id="collaborations"
+          className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-white/10 p-10"
+        >
           <div className="grid gap-8 md:grid-cols-[1.4fr,1fr] md:items-center">
             <div>
               <h3 className="text-3xl font-semibold tracking-tight md:text-4xl">Let&apos;s build what&apos;s next</h3>
@@ -183,7 +192,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="space-y-6 text-center">
+        <section id="contact" className="space-y-6 text-center">
           <h3 className="text-3xl font-semibold md:text-4xl">Ready to create momentum?</h3>
           <p className="mx-auto max-w-3xl text-lg text-white/70">
             Let&apos;s discuss your product vision, upcoming initiative, or growth challenge. I bring clarity, accountability, and
