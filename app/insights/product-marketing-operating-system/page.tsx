@@ -1,50 +1,29 @@
 import Link from "next/link"
-import {
-  ArrowLeft,
-  ArrowRight,
-  Megaphone,
-  NotepadText,
-  Rocket,
-  Sparkles,
-  Users,
-} from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { ArrowLeft, ArrowRight, Megaphone, NotepadText, Rocket, Sparkles, Users } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 
-const pillarIcons = {
-  narrativeArchitecture: Sparkles,
-  launchChoreography: Rocket,
-  revenueEnablement: Megaphone,
-} satisfies Record<string, LucideIcon>
-
-type Pillar = {
-  title: string
-  description: string
-  icon: keyof typeof pillarIcons
-}
-
-const pillars: Pillar[] = [
+const pillars = [
   {
     title: "Narrative architecture",
     description:
       "Craft differentiated positioning, proof, and objection handling that anchors every touchpoint in customer truth.",
-    icon: "narrativeArchitecture",
+    icon: <Sparkles className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
   {
     title: "Launch choreography",
     description:
       "Orchestrate cross-functional plans, asset readiness, and enablement in weekly rhythms that keep stakeholders aligned.",
-    icon: "launchChoreography",
+    icon: <Rocket className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
   {
     title: "Revenue enablement",
     description:
       "Equip sales and success with modular stories, ROI calculators, and battlecards linked to the buyer journey.",
-    icon: "revenueEnablement",
+    icon: <Megaphone className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
 ]
 
@@ -82,17 +61,13 @@ export default function ProductMarketingOperatingSystemPage() {
           <h2 className="text-2xl font-semibold">Operating pillars</h2>
           <Card className="border-white/10 bg-white/[0.05]">
             <CardContent className="grid gap-4 p-6 md:grid-cols-3">
-              {pillars.map((pillar) => {
-                const PillarIcon = pillarIcons[pillar.icon]
-
-                return (
-                  <div key={pillar.title} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
-                    <PillarIcon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    <h3 className="text-lg font-semibold">{pillar.title}</h3>
-                    <p className="text-sm text-white/70">{pillar.description}</p>
-                  </div>
-                )
-              })}
+              {pillars.map((pillar) => (
+                <div key={pillar.title} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                  {pillar.icon}
+                  <h3 className="text-lg font-semibold">{pillar.title}</h3>
+                  <p className="text-sm text-white/70">{pillar.description}</p>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </section>

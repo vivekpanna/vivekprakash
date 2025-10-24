@@ -1,49 +1,29 @@
 import Link from "next/link"
-import {
-  ArrowLeft,
-  ArrowRight,
-  CalendarCheck,
-  Compass,
-  MessageSquare,
-  Target,
-} from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { ArrowLeft, ArrowRight, CalendarCheck, Compass, MessageSquare, Target } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 
-const chapterIcons = {
-  anchorOnIntent: Compass,
-  purposefulRituals: CalendarCheck,
-  coachPartners: MessageSquare,
-} satisfies Record<string, LucideIcon>
-
-type Chapter = {
-  title: string
-  description: string
-  icon: keyof typeof chapterIcons
-}
-
-const chapters: Chapter[] = [
+const chapters = [
   {
     title: "Anchor on intent",
     description:
       "Start every initiative with an intent statement that links customer value, business outcomes, and the operating constraints you are managing.",
-    icon: "anchorOnIntent",
+    icon: <Compass className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
   {
     title: "Design purposeful rituals",
     description:
       "Facilitation guides, meeting notes, and async templates help teams swap status theatre for decisions and learning.",
-    icon: "purposefulRituals",
+    icon: <CalendarCheck className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
   {
     title: "Coach cross-functional partners",
     description:
       "Conversation frameworks and feedback loops make collaboration with engineering, design, and go-to-market partners frictionless.",
-    icon: "coachPartners",
+    icon: <MessageSquare className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
 ]
 
@@ -91,17 +71,13 @@ export default function ProductManagementGuidePage() {
           <h2 className="text-2xl font-semibold">Guiding principles</h2>
           <Card className="border-white/10 bg-white/[0.05]">
             <CardContent className="grid gap-4 p-6 md:grid-cols-3">
-              {chapters.map((chapter) => {
-                const ChapterIcon = chapterIcons[chapter.icon]
-
-                return (
-                  <div key={chapter.title} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
-                    <ChapterIcon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    <h3 className="text-lg font-semibold">{chapter.title}</h3>
-                    <p className="text-sm text-white/70">{chapter.description}</p>
-                  </div>
-                )
-              })}
+              {chapters.map((chapter) => (
+                <div key={chapter.title} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                  {chapter.icon}
+                  <h3 className="text-lg font-semibold">{chapter.title}</h3>
+                  <p className="text-sm text-white/70">{chapter.description}</p>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </section>
