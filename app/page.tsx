@@ -1,495 +1,493 @@
-"use client"
+import Image from "next/image"
+import Link from "next/link"
+import {
+  ArrowRight,
+  BarChart3,
+  Briefcase,
+  Lightbulb,
+  LineChart,
+  Mail,
+  ShieldCheck,
+  Sparkles,
+  Target,
+  Users,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
-import { useState, useEffect } from "react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
-import { Download, Linkedin, Mail, Phone, CalendarDays, ChevronDown, Briefcase, FolderOpen, Quote } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { translations, type Language } from "@/lib/translations"
-import { LanguageSwitcher } from "@/components/language-switcher"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 
-interface PortfolioItem {
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Insights", href: "#insights" },
+  { label: "Advisory", href: "#advisory" },
+  { label: "Contact", href: "#contact" },
+]
+
+const serviceIcons = {
+  target: Target,
+  barChart3: BarChart3,
+  lightbulb: Lightbulb,
+} satisfies Record<string, LucideIcon>
+
+type Service = {
   title: string
   description: string
-  longDescription: string
-  imageUrl?: string
+  icon: keyof typeof serviceIcons
 }
 
-export default function ProfilePage() {
-  const [language, setLanguage] = useState<Language>("en")
-  const [selectedPortfolioItem, setSelectedPortfolioItem] = useState<PortfolioItem | null>(null)
-  const t = translations[language]
+const services: Service[] = [
+  {
+    title: "Product Strategy",
+    description:
+      "Translate customer insight into a clear product thesis, prioritised roadmap, and measurable goals that executives and teams can rally around.",
+    icon: "target",
+  },
+  {
+    title: "Operational Excellence",
+    description:
+      "Design operating rituals, analytics, and quality frameworks so teams learn faster, ship confidently, and continuously reduce risk.",
+    icon: "barChart3",
+  },
+  {
+    title: "Go-to-market Acceleration",
+    description:
+      "Align marketing, sales, and product with clear narratives, positioning, and feedback loops that unlock sustainable growth.",
+    icon: "lightbulb",
+  },
+]
 
-  useEffect(() => {
-    // You could try to detect browser language here or load from localStorage
-    // For now, it defaults to 'en'
-    const savedLanguage = localStorage.getItem("language") as Language
-    if (savedLanguage && translations[savedLanguage]) {
-      setLanguage(savedLanguage)
-    } else {
-      setLanguage("en")
-    }
-    // --- IGNORE ---
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+const proofPoints = [
+  {
+    label: "Products launched",
+    value: "25+",
+  },
+  {
+    label: "Cross-functional teams led",
+    value: "6",
+  },
+  {
+    label: "Markets served",
+    value: "12",
+  },
+]
 
-  const handleLanguageChange = (lang: Language) => {
-    setLanguage(lang)
-  }
+const collaborations = [
+  "AI-first SaaS",
+  "Industrial IoT",
+  "Healthcare", 
+  "Fintech",
+  "Public Sector",
+  "Climate Tech",
+]
 
-  const getBadgeColorClass = (color: string) => {
-    switch (color) {
-      case "purple":
-        return "bg-purple-100 text-purple-800"
-      case "green":
-        return "bg-green-100 text-green-800"
-      case "blue":
-        return "bg-blue-100 text-blue-800"
-      case "orange":
-        return "bg-orange-100 text-orange-800"
-      case "red":
-        return "bg-red-100 text-red-800"
-      case "pink":
-        return "bg-pink-100 text-pink-800"
-      default:
-        return "bg-gray-100 text-gray-800"
-    }
-  }
+const insights = [
+  {
+    slug: "cost-of-quality-analysis",
+    title: "Cost of Quality Analysis Playbook",
+    excerpt:
+      "How to quantify conformance and non-conformance work, build defensible business cases, and reduce failure demand across the product lifecycle.",
+    tags: ["Operational excellence", "Analytics"],
+  },
+  {
+    slug: "product-marketing-operating-system",
+    title: "Product Marketing Operating System",
+    excerpt:
+      "Positioning, launch orchestration, and revenue enablement tactics that helped SaaS teams align their customer storytelling with product truth.",
+    tags: ["Go-to-market", "Storytelling"],
+  },
+  {
+    slug: "product-management-guide",
+    title: "Intentional Product Management",
+    excerpt:
+      "A practical guide to shaping outcomes, shaping rituals, and levelling up collaboration for product managers and their partners.",
+    tags: ["Leadership", "Team coaching"],
+  },
+]
 
-  const navItems = [
-    { id: "about", label: t.navAbout },
-    { id: "experience", label: t.navExperience },
-    { id: "expertise", label: t.navExpertise },
-    { id: "portfolio", label: t.navPortfolio },
-    { id: "education", label: t.navEducation },
-    { id: "tools", label: t.navTools },
-    { id: "languages", label: t.navLanguages },
-    { id: "references", label: t.navReferences }, // Added References to navigation
-  ]
-
+export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 text-foreground">
-      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
-          <nav className="hidden md:flex gap-6">
+    <div className="min-h-screen bg-slate-950 text-white">
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-slate-950 to-black"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_55%)]"
+        aria-hidden
+      />
+
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+          <Link href="/" className="flex items-center gap-3 text-xl font-semibold tracking-tight">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary">
+              <Sparkles className="h-5 w-5" aria-hidden="true" />
+            </div>
+            Vivek Prakash
+          </Link>
+          <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
             {navItems.map((item) => (
-              <Link
-                key={item.id}
-                href={`#${item.id}`}
-                className="text-gray-600 hover:text-primary font-medium transition-colors duration-200"
-              >
+              <Link key={item.href} href={item.href} className="transition hover:text-white">
                 {item.label}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-4 ml-auto">
-            <LanguageSwitcher onLanguageChange={handleLanguageChange} currentLanguage={language} />
+          <div className="hidden items-center gap-3 md:flex">
+            <Button asChild variant="ghost" className="text-white/80 hover:text-white">
+              <Link href="https://portfolio.vivekprakash.de" target="_blank" rel="noopener noreferrer">
+                Portfolio
+              </Link>
+            </Button>
+            <Button asChild className="gap-2">
+              <Link href="mailto:vivek@vivekprakash.de">
+                Let&apos;s talk
+                <Mail className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
         </div>
       </header>
 
-      <main className="flex-1 p-4 md:p-8 lg:p-12 max-w-7xl mx-auto w-full">
-        {/* Hero Section */}
-        <section className="relative bg-white rounded-xl shadow-2xl p-8 md:p-12 lg:p-16 mb-16 overflow-hidden border border-primary/20">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 opacity-60 z-0 animate-pulse-slow"></div>
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-            <Avatar className="w-40 h-40 md:w-52 md:h-52 border-4 border-primary shadow-xl transition-transform duration-300 hover:scale-105 ring-4 ring-primary/30">
-              <AvatarImage src="/Vivek-Linkedin-photo.jpg?height=200&width=200" alt={t.name} />
-              <AvatarFallback className="text-7xl font-extrabold bg-primary text-primary-foreground">VP</AvatarFallback>
-            </Avatar>
-            <div className="text-center md:text-left flex-1">
-              <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-3 leading-tight tracking-tight">
-                {t.name}
-              </h1>
-              <p className="text-2xl md:text-4xl text-primary font-semibold mb-5 animate-fade-in-up">{t.title}</p>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto md:mx-0 mb-6">{t.summary}</p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
-                <Link href="https://linkedin.com/in/raivivekprakash" target="_blank" rel="noopener noreferrer">
-                  <Button className="gap-2 bg-blue-600 hover:bg-blue-700 text-white shadow-md transition-all duration-200 hover:scale-105 transform hover:-translate-y-1">
-                    <Linkedin className="w-5 h-5" /> {t.connectLinkedIn}
-                  </Button>
+      <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-24 px-6 py-16">
+        <section id="about" className="grid gap-12 md:grid-cols-[1.4fr,1fr] md:items-center">
+          <div className="space-y-6">
+            <Badge className="bg-primary/20 text-primary">Fractional CPO & Product Advisor</Badge>
+            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+              Helping founders and operators turn product vision into momentum
+            </h1>
+            <p className="text-lg text-white/70">
+              I partner with teams to untangle complex problems, align stakeholders, and build lovable experiences.
+              From zero-to-one discovery to scaling product-market fit, I bring a pragmatic, data-informed, and deeply
+              collaborative approach.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg" className="gap-2">
+                <Link href="https://portfolio.vivekprakash.de" target="_blank" rel="noopener noreferrer">
+                  Explore portfolio
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
-                <Link
-                  href="https://drive.google.com/file/d/13kCuaEMhX3o7v-_xvyKg0bA6EJJDDinN/view?usp=drive_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    variant="outline"
-                    className="gap-2 border-primary text-primary hover:bg-primary/10 transition-all duration-200 hover:scale-105 transform hover:-translate-y-1 bg-transparent"
-                  >
-                    <Download className="w-5 h-5" /> {t.downloadCV}
-                  </Button>
-                </Link>
-                <Link href="https://calendly.com/vivekpanna" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    variant="outline"
-                    className="gap-2 border-green-500 text-green-700 hover:bg-green-50 transition-all duration-200 hover:scale-105 transform hover:-translate-y-1 bg-transparent"
-                  >
-                    <CalendarDays className="w-5 h-5" /> {t.scheduleCall}
-                  </Button>
-                </Link>
-              </div>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10"
+              >
+                <Link href="#contact">Start a conversation</Link>
+              </Button>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {proofPoints.map((item) => (
+                <Card key={item.label} className="border-white/10 bg-white/5">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-3xl font-semibold text-white">{item.value}</CardTitle>
+                    <CardDescription className="text-xs uppercase tracking-wide text-white/60">
+                      {item.label}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center">
+            <div className="absolute -inset-6 -z-10 rounded-full bg-primary/20 blur-3xl" aria-hidden />
+            <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-primary/20">
+              <Image
+                src="/project1.jpg"
+                alt="Collaborative workshop"
+                width={520}
+                height={520}
+                className="h-full w-full object-cover"
+                priority
+              />
             </div>
           </div>
         </section>
 
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* About Me Section */}
-        <section id="about" className="mb-16 text-center md:text-left">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8">{t.aboutMe}</h2>
-          <div className="bg-white rounded-xl shadow-md p-8 text-lg text-gray-700 leading-relaxed border border-gray-200">
-            <p className="mb-4">{t.aboutMeContent1}</p>
-            <p>{t.aboutMeContent2}</p>
+        <section id="services" className="space-y-10">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Where we create traction</h2>
+              <p className="mt-3 max-w-2xl text-white/70">
+                Engagements are shaped around your context—whether that&apos;s validating a new concept, scaling customer
+                value, or reorganising delivery for speed and quality.
+              </p>
+            </div>
+            <Button asChild variant="ghost" className="gap-2 text-white/80 hover:text-white">
+              <Link href="https://portfolio.vivekprakash.de" target="_blank" rel="noopener noreferrer">
+                View engagements
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
-        </section>
+          <div className="grid gap-6 md:grid-cols-3">
+            {services.map((service) => {
+              const ServiceIcon = serviceIcons[service.icon]
 
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Key Achievements Section */}
-        <section className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.keyAchievements}</h2>
-          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
-            <ul className="list-disc list-inside space-y-3 text-lg text-gray-700">
-              {t.achievementsList.map((achievement, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-primary mt-1">
-                    <ChevronDown className="w-4 h-4 rotate-90" />
-                  </span>
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Experience Section - Enhanced Accordion */}
-        <section id="experience" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.professionalJourney}</h2>
-          <Accordion type="single" collapsible className="w-full">
-            {t.experience.map((exp, index) => (
-              <Card
-                key={index}
-                className="mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden
-                           group relative
-                           border-l-4 border-primary transform hover:-translate-y-1" // Added left border for visual appeal and subtle lift on hover
-              >
-                {/* A small decorative circle for timeline feel */}
-                <div className="absolute -left-2 top-6 h-4 w-4 rounded-full bg-primary group-hover:bg-primary/80 transition-colors duration-300 z-10 border-2 border-white" />
-
-                <AccordionItem value={`item-${index}`}>
-                  <AccordionTrigger className="p-6 text-left hover:no-underline flex items-center gap-4">
-                    <Briefcase className="h-8 w-8 text-primary flex-shrink-0" />
-                    <div className="flex flex-col items-start flex-grow">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">{exp.title}</h3>{" "}
-                      {/* Larger, bolder title */}
-                      <p className="text-lg text-gray-700">
-                        {exp.company} {exp.location && `| ${exp.location}`}
-                      </p>
-                      <p className="text-md text-gray-600 font-medium">{exp.duration}</p> {/* Highlight duration */}
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="p-6 pt-0 bg-gray-50 border-t border-gray-100 rounded-b-xl">
-                    {" "}
-                    {/* Rounded bottom */}
-                    <ul className="list-disc list-inside space-y-2 text-gray-700">
-                      {exp.description.map((desc, descIndex) => (
-                        <li key={descIndex}>{desc}</li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Card>
-            ))}
-          </Accordion>
-        </section>
-
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Expertise Section */}
-        <section id="expertise" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.coreExpertise}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {t.expertiseCategories.map((category, index) => (
-              <Card
-                key={index}
-                className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
-              >
-                <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skillIndex}
-                      variant="secondary"
-                      className={`${getBadgeColorClass(category.color)} text-sm px-3 py-1 rounded-full`}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Portfolio Section - Grid with Dialog */}
-        <section id="portfolio" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.showcaseOfWork}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {t.portfolioItems.map((item, index) => (
-              <Dialog key={index}>
-                <DialogTrigger asChild>
-                  <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200 group cursor-pointer">
-                    <div className="relative w-full h-48 overflow-hidden">
-                      <Image
-                        src={item.imageUrl || "/placeholder.png"}
-                        width={400}
-                        height={200}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <h3 className="text-white text-lg font-semibold">{item.title}</h3>
-                      </div>
-                    </div>
-                    <CardHeader className="pb-4">
-                      <CardTitle className="text-xl text-primary">{item.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-gray-700 mb-4">{item.description}</p>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="gap-2 border-primary text-primary hover:bg-primary/10 bg-transparent transition-all duration-200 hover:scale-105"
-                      >
-                        <FolderOpen className="w-4 h-4" /> View Details
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[800px] p-6">
-                  <DialogHeader>
-                    <DialogTitle className="text-3xl font-bold text-primary">{item.title}</DialogTitle>
-                    <DialogDescription className="text-lg text-gray-700 mt-2">{item.description}</DialogDescription>
-                  </DialogHeader>
-                  <div className="mt-4 text-gray-800 leading-relaxed max-h-[60vh] overflow-y-auto pr-4">
-                    <p>{item.longDescription}</p>
+              return (
+                <Card key={service.title} className="flex flex-col justify-between border-white/10 bg-white/[0.06] p-6">
+                  <div className="space-y-4">
+                    <ServiceIcon className="h-6 w-6 text-primary" aria-hidden="true" />
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardDescription className="text-sm text-white/70">
+                      {service.description}
+                    </CardDescription>
                   </div>
-                </DialogContent>
-              </Dialog>
-            ))}
+                  <Separator className="my-6 bg-white/10" />
+                  <p className="text-xs uppercase tracking-wide text-white/50">
+                    Available as advisory or embedded leadership
+                  </p>
+                </Card>
+              )
+            })}
           </div>
         </section>
 
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Education & Certifications Section */}
-        <section id="education" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">
-            {t.educationCertifications}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200">
-              <CardTitle className="text-xl mb-4 text-primary">Education</CardTitle>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                {t.educationList.map((edu, index) => (
-                  <li key={index}>{edu}</li>
-                ))}
-              </ul>
-            </Card>
-            <Card className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200">
-              <CardTitle className="text-xl mb-4 text-primary">Certifications</CardTitle>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                {t.certificationsList.map((cert, index) => (
-                  <li key={index}>{cert}</li>
-                ))}
-              </ul>
-            </Card>
+        <section id="insights" className="space-y-10">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Latest insight sprints</h2>
+              <p className="mt-3 max-w-2xl text-white/70">
+                Deep dives shaped from real client work—each article blends the research, canvases, and rituals I use
+                with product and go-to-market teams.
+              </p>
+            </div>
+            <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10">
+              <Link href="/insights">Browse the library</Link>
+            </Button>
           </div>
-        </section>
-
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Tools & Methods Section */}
-        <section id="tools" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.toolsMethods}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {t.toolsCategories.map((category, index) => (
+          <div className="grid gap-6 md:grid-cols-3">
+            {insights.map((post) => (
               <Card
-                key={index}
-                className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
+                key={post.slug}
+                className="group border-white/10 bg-white/[0.06] p-6 transition hover:border-primary/40 hover:bg-white/[0.12]"
               >
-                <CardTitle className="text-xl mb-4 text-primary">{category.title}</CardTitle>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skillIndex}
-                      variant="secondary"
-                      className="bg-gray-100 text-gray-800 text-sm px-3 py-1 rounded-full"
-                    >
-                      {skill}
+                <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-white/50">
+                  <Briefcase className="h-4 w-4 text-primary" aria-hidden="true" />
+                  Insight sprint
+                </div>
+                <CardTitle className="mt-4 text-xl group-hover:text-primary">{post.title}</CardTitle>
+                <CardDescription className="mt-3 text-sm text-white/70">{post.excerpt}</CardDescription>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary" className="bg-white/10 text-white">
+                      {tag}
                     </Badge>
                   ))}
                 </div>
+                <Button
+                  asChild
+                  variant="link"
+                  className="mt-4 px-0 text-primary hover:text-primary/80"
+                >
+                  <Link href={`/insights/${post.slug}`}>
+                    Read the playbook
+                    <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </Button>
               </Card>
             ))}
           </div>
         </section>
 
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* Language Knowledge Section */}
-        <section id="languages" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.languageKnowledge}</h2>
-          <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
-            <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
-              {t.languages.map((lang, index) => (
-                <li key={index}>{lang}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <Separator className="my-16 bg-gradient-to-r from-transparent via-primary to-transparent h-0.5" />
-
-        {/* References Section */}
-        <section id="references" className="mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left">{t.navReferences}</h2>
-
-          {/* Interim Reference */}
-          <Card className="mb-8 shadow-lg bg-white border border-gray-200">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-2xl text-primary">{t.references.interimReference.title}</CardTitle>
-              {t.references.interimReference.pdfUrl && (
-                <Link href={t.references.interimReference.pdfUrl} target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="gap-2 bg-transparent">
-                    <Download className="w-4 h-4" /> Download PDF
-                  </Button>
-                </Link>
-              )}
+        <section id="advisory" className="grid gap-8 md:grid-cols-[1.3fr,1fr] md:items-center">
+          <Card className="border-white/10 bg-white/[0.04] p-8">
+            <CardHeader className="space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-wide text-white/70">
+                <ShieldCheck className="h-4 w-4 text-primary" aria-hidden="true" />
+                Trusted collaborations
+              </div>
+              <CardTitle className="text-3xl">Partnerships that compound</CardTitle>
+              <CardDescription className="text-base text-white/70">
+                Advisory engagements are structured for high leverage: async research summaries, decision rituals,
+                embedded workshops, and hands-on execution when your roadmap needs extra lift.
+              </CardDescription>
             </CardHeader>
-            <CardContent className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-              {t.references.interimReference.summary}
+            <CardContent className="grid gap-3">
+              {collaborations.map((item) => (
+                <div key={item} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <span className="text-sm font-medium text-white/80">{item}</span>
+                  <LineChart className="h-4 w-4 text-white/30" aria-hidden="true" />
+                </div>
+              ))}
             </CardContent>
           </Card>
-
-          {/* Other References */}
-          {t.references.otherReferences && t.references.otherReferences.length > 0 && (
-            <>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 mt-12 text-center md:text-left">
-                Other Formal References
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {t.references.otherReferences.map((ref, index) => (
-                  <Card
-                    key={index}
-                    className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
-                  >
-                    <CardHeader className="flex flex-row items-start justify-between gap-4 p-0 pb-4">
-                      <div className="flex flex-col">
-                        <CardTitle className="text-xl text-primary">{ref.title}</CardTitle>
-                        <p className="text-sm text-gray-600">{ref.company}</p>
-                        <p className="text-sm text-gray-500">{ref.date}</p>
-                      </div>
-                      {ref.pdfUrl && (
-                        <Link href={ref.pdfUrl} target="_blank" rel="noopener noreferrer">
-                          <Button variant="outline" size="sm" className="gap-1 bg-transparent">
-                            <Download className="w-4 h-4" /> PDF
-                          </Button>
-                        </Link>
-                      )}
-                    </CardHeader>
-                    <CardContent className="text-gray-700 leading-relaxed p-0 whitespace-pre-wrap">
-                      <p>{ref.summary}</p>
-                    </CardContent>
-                  </Card>
-                ))}
+          <Card className="border-white/10 bg-white/[0.04] p-8">
+            <CardHeader>
+              <CardTitle className="text-2xl">Advisory formats</CardTitle>
+              <CardDescription className="text-white/70">
+                Choose the cadence that fits your operating rhythm.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-lg font-semibold">Fractional leadership</h3>
+                <p className="mt-2 text-sm text-white/70">
+                  Step-in CPO and Head of Product support to guide product strategy, rituals, and hiring as you grow.
+                </p>
               </div>
-            </>
-          )}
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-lg font-semibold">Advisory sprints</h3>
+                <p className="mt-2 text-sm text-white/70">
+                  4–6 week engagements to validate strategy, redesign discovery, or unblock go-to-market execution.
+                </p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <h3 className="text-lg font-semibold">Workshops & facilitation</h3>
+                <p className="mt-2 text-sm text-white/70">
+                  Tailored sessions to align stakeholders, refine positioning, or shape customer journeys.
+                </p>
+              </div>
+              <Button asChild className="mt-2 w-full">
+                <Link href="https://calendly.com/vivekpanna" target="_blank" rel="noopener noreferrer">
+                  Book an intro session
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </section>
 
-          {/* LinkedIn Recommendations */}
-          <h3 className="text-3xl font-bold text-gray-900 mb-6 mt-12 text-center md:text-left">
-            LinkedIn Recommendations
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.references.linkedinRecommendations.map((rec, index) => (
-              <Card
-                key={index}
-                className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white border border-gray-200"
-              >
-                <CardHeader className="flex flex-row items-start gap-4 p-0 pb-4">
-                  <Quote className="h-8 w-8 text-primary flex-shrink-0" />
-                  <div className="flex flex-col">
-                    <CardTitle className="text-xl text-primary">{rec.name}</CardTitle>
-                    <p className="text-sm text-gray-600">{rec.relationship}</p>
-                    <p className="text-sm text-gray-500">{rec.date}</p>
-                  </div>
-                </CardHeader>
-                <CardContent className="text-gray-700 leading-relaxed p-0">
-                  <p>{rec.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+        <section id="contact" className="space-y-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold md:text-4xl">Let&apos;s design your next inflection point</h2>
+            <p className="mx-auto mt-3 max-w-3xl text-lg text-white/70">
+              Share a few lines about your product, team, and timeline. I&apos;ll respond within two working days with
+              recommended next steps.
+            </p>
+          </div>
+          <div className="mx-auto grid w-full max-w-4xl gap-6 rounded-3xl border border-white/10 bg-white/[0.05] p-8 md:grid-cols-2">
+            <div className="space-y-4 text-left">
+              <h3 className="text-xl font-semibold">Direct channels</h3>
+              <p className="text-sm text-white/70">
+                Prefer async notes? Email{' '}
+                <Link href="mailto:vivek@vivekprakash.de" className="text-primary underline">
+                  vivek@vivekprakash.de
+                </Link>{' '}
+                or schedule a call on{' '}
+                <Link href="https://calendly.com/vivekpanna" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                  Calendly
+                </Link>
+                .
+              </p>
+              <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                <Users className="h-5 w-5 text-primary" aria-hidden="true" />
+                <p className="text-sm text-white/70">
+                  Remote-first partnerships spanning Europe, North America, and APAC time zones.
+                </p>
+              </div>
+              <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                <ShieldCheck className="h-5 w-5 text-primary" aria-hidden="true" />
+                <p className="text-sm text-white/70">NDA-friendly discovery and executive-ready deliverables.</p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <Label htmlFor="email" className="text-sm uppercase tracking-wide text-white/60">
+                Stay in the loop
+              </Label>
+              <p className="text-sm text-white/60">
+                Quarterly notes featuring new frameworks, templates, and upcoming workshops.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  className="border-white/20 bg-white/5 text-white placeholder:text-white/40"
+                />
+                <Button className="sm:w-auto">Subscribe</Button>
+              </div>
+              <Separator className="bg-white/10" />
+              <Label htmlFor="message" className="text-sm uppercase tracking-wide text-white/60">
+                Project overview
+              </Label>
+              <textarea
+                id="message"
+                rows={4}
+                className="w-full rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-primary focus:outline-none"
+                placeholder="What challenge are you tackling?"
+              />
+              <Button className="w-full">Send message</Button>
+            </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 text-center">
-        <div className="max-w-6xl mx-auto px-4">
-          <p className="mb-4 text-lg">{t.footerText}</p>
-          <div className="flex justify-center gap-6 mb-6">
-            <Link
-              href="https://linkedin.com/in/raivivekprakash"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors duration-200 transform hover:-translate-y-1"
-            >
-              <Linkedin className="w-7 h-7" />
+      <footer className="border-t border-white/10 bg-slate-950/80">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-10 md:flex-row md:items-start md:justify-between">
+          <div className="space-y-3">
+            <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20 text-primary">
+                <Sparkles className="h-5 w-5" aria-hidden="true" />
+              </div>
+              Vivek Prakash
             </Link>
-            <Link
-              href={`mailto:${t.email}`}
-              className="hover:text-blue-400 transition-colors duration-200 transform hover:-translate-y-1"
-            >
-              <Mail className="w-7 h-7" />
-            </Link>
-            <Link
-              href={`tel:${t.phone}`}
-              className="hover:text-blue-400 transition-colors duration-200 transform hover:-translate-y-1"
-            >
-              <Phone className="w-7 h-7" />
-            </Link>
-            <Link
-              href="https://calendly.com/vivekpanna"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors duration-200 transform hover:-translate-y-1"
-            >
-              <CalendarDays className="w-7 h-7" />
-            </Link>
+            <p className="max-w-sm text-sm text-white/60">
+              Fractional product leadership for teams shipping ambitious digital experiences.
+            </p>
           </div>
-          <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} {t.name}. {t.footerCopyright}
-          </p>
+          <div className="grid flex-1 gap-6 md:grid-cols-2">
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-white/60">Navigation</h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="transition hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    href="https://portfolio.vivekprakash.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Portfolio
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-white/60">Connect</h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>
+                  <Link href="mailto:vivek@vivekprakash.de" className="transition hover:text-white">
+                    Email
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/in/raivivekprakash"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    LinkedIn
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://calendly.com/vivekpanna"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Book a call
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-sm text-white/50 md:text-right">
+            © {new Date().getFullYear()} Vivek Prakash. All rights reserved.
+          </div>
         </div>
       </footer>
     </div>
