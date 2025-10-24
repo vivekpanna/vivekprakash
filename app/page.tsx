@@ -4,7 +4,9 @@ import { ArrowRight, Briefcase, Globe, LineChart, Mail, Sparkles, Target } from 
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 
 const highlights = [
@@ -219,6 +221,66 @@ export default function LandingPage() {
             <Link href="https://www.linkedin.com/in/raivivekprakash" className="hover:text-white" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </Link>
+            <p className="max-w-sm text-sm text-white/60">
+              Fractional product leadership for teams shipping ambitious digital experiences.
+            </p>
+          </div>
+          <div className="grid flex-1 gap-6 md:grid-cols-2">
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-white/60">Navigation</h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="transition hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link
+                    href="https://portfolio.vivekprakash.de"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Portfolio
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-white/60">Connect</h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>
+                  <Link href="mailto:vivek@vivekprakash.de" className="transition hover:text-white">
+                    Email
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/in/raivivekprakash"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    LinkedIn
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://calendly.com/vivekpanna"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Book a call
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-sm text-white/50 md:text-right">
+            © {new Date().getFullYear()} Vivek Prakash. All rights reserved.
           </div>
         </div>
       </footer>
