@@ -1,44 +1,29 @@
 import Link from "next/link"
-import {
-  ArrowLeft,
-  ArrowRight,
-  BarChart3,
-  ClipboardCheck,
-  Layers,
-  LineChart,
-  ShieldCheck,
-} from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { ArrowLeft, ArrowRight, BarChart3, ClipboardCheck, Layers, LineChart, ShieldCheck } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 
-type Lever = {
-  title: string
-  description: string
-  icon: LucideIcon
-}
-
-const levers: Lever[] = [
+const levers = [
   {
     title: "Prevention & appraisal",
     description:
       "Instrument discovery, design reviews, and automated testing to shrink the volume of failure demand before it reaches customers.",
-    icon: ShieldCheck,
+    icon: <ShieldCheck className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
   {
     title: "Internal failure",
     description:
       "Visualise rework, blocked work, and churned backlog items so leadership can quantify the hidden drag on velocity.",
-    icon: Layers,
+    icon: <Layers className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
   {
     title: "External failure",
     description:
       "Connect customer support, incident data, and NPS detractors to measurable cost and revenue impact.",
-    icon: BarChart3,
+    icon: <BarChart3 className="h-6 w-6 text-primary" aria-hidden="true" />,
   },
 ]
 
@@ -90,17 +75,13 @@ export default function CostOfQualityAnalysisPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4 md:grid-cols-3">
-              {levers.map((lever) => {
-                const LeverIcon = lever.icon
-
-                return (
-                  <div key={lever.title} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
-                    <LeverIcon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    <h3 className="text-lg font-semibold">{lever.title}</h3>
-                    <p className="text-sm text-white/70">{lever.description}</p>
-                  </div>
-                )
-              })}
+              {levers.map((lever) => (
+                <div key={lever.title} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                  {lever.icon}
+                  <h3 className="text-lg font-semibold">{lever.title}</h3>
+                  <p className="text-sm text-white/70">{lever.description}</p>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </section>
