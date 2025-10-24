@@ -29,8 +29,25 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Custom domain routing on Render
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project serves two distinct experiences from the same Next.js codebase:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `vivekprakash.de` → landing page rendered from `app/page.tsx`
+- `portfolio.vivekprakash.de` → immersive portfolio rendered from `app/portfolio/page.tsx`
+
+To host both on a single Render Web Service:
+
+1. **Add both custom domains in Render.** Point the apex domain `vivekprakash.de` (and optionally `www.vivekprakash.de`) to the service, then add the subdomain `portfolio.vivekprakash.de` as an additional custom domain. Update your DNS provider with the A/ALIAS (apex) and CNAME (subdomain) records Render provides.
+2. **Set the portfolio hostname (optional).** If you need a hostname other than `portfolio.vivekprakash.de`, define the `PORTFOLIO_HOST` environment variable on the Render service (for example `work.vivekprakash.de`). The middleware included in this repo will automatically rewrite requests from that host to the `/portfolio` route.
+3. **Add a rewrite rule.** In the Render dashboard, open the service → **Redirects / Rewrites** and add:
+
+   | Source | Destination | Action |
+   | ------ | ----------- | ------ |
+   | `/*`   | `/portfolio/$1` | _Rewrite_ |
+
+   Attach the rule to the `portfolio.vivekprakash.de` custom domain only. The middleware ensures direct navigations, deep links, and asset requests resolve correctly.
+4. **Optional: configure cross-links.** The portfolio header links back to the main site. If your apex domain differs, set `NEXT_PUBLIC_HOME_ORIGIN` (for example `https://example.com`) so the link resolves correctly in production.
+5. **Deploy once.** Redeploy (or trigger a manual deploy) so the middleware and domain configuration take effect.
+
+Visitors hitting `vivekprakash.de` stay on the landing page, while anyone using `portfolio.vivekprakash.de` is seamlessly served the portfolio without maintaining two separate codebases.
