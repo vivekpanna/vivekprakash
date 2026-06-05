@@ -1,53 +1,220 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Vivek Prakash – Personal Portfolio Website
 
-## Getting Started
+A modern, responsive personal portfolio website built using **Next.js**, **TypeScript**, and **Tailwind CSS**, showcasing professional experience, skills, and projects.
 
-First, run the development server:
+***
 
-\`\`\`bash
+## 📌 Overview
+
+This project is a production-ready portfolio website designed to:
+
+* Present professional profile and background
+* Showcase technical skills and projects
+* Provide a clean and interactive user experience
+* Demonstrate modern frontend engineering practices
+
+***
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+
+* **Next.js (App Router)**
+* **React**
+* **TypeScript**
+
+### Styling & UI
+
+* **Tailwind CSS**
+* **PostCSS**
+
+### Other
+
+* **ESLint** – code quality
+* **Custom components & hooks architecture**
+
+***
+
+## 📂 Project Structure
+
+```
+.
+├── app/              # App router pages (Next.js)
+├── components/       # Reusable UI components
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions
+├── public/           # Static assets
+├── styles/           # Global styling
+├── middleware.ts     # Request middleware logic
+├── next.config.mjs   # Next.js configuration
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+***
+
+## ⚙️ Getting Started
+
+### ✅ Prerequisites
+
+Make sure you have:
+
+* Node.js (v18+ recommended)
+* npm / pnpm / yarn
+
+***
+
+### ▶️ Run in Development Mode
+
+```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-\`\`\`
+```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+***
 
-## Learn More
+### 🏗️ Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+***
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🚀 Start Production Server
 
-## Custom domain routing on Render
+```bash
+npm start
+```
 
-This project serves two distinct experiences from the same Next.js codebase:
+***
 
-- `vivekprakash.de` → landing page rendered from `app/page.tsx`
-- `portfolio.vivekprakash.de` → immersive portfolio rendered from `app/portfolio/page.tsx`
+## 🌐 Deployment
 
-To host both on a single Render Web Service:
+### ✅ Production Setup (EC2 + Nginx)
 
-1. **Add both custom domains in Render.** Point the apex domain `vivekprakash.de` (and optionally `www.vivekprakash.de`) to the service, then add the subdomain `portfolio.vivekprakash.de` as an additional custom domain. Update your DNS provider with the A/ALIAS (apex) and CNAME (subdomain) records Render provides.
-2. **Set the portfolio hostname (optional).** If you need a hostname other than `portfolio.vivekprakash.de`, define the `PORTFOLIO_HOST` environment variable on the Render service (for example `work.vivekprakash.de`). The middleware included in this repo will automatically rewrite requests from that host to the `/portfolio` route.
-3. **Add a rewrite rule.** In the Render dashboard, open the service → **Redirects / Rewrites** and add:
+This app is designed to run behind **Nginx as a reverse proxy**.
 
-   | Source | Destination | Action |
-   | ------ | ----------- | ------ |
-   | `/*`   | `/portfolio/$1` | _Rewrite_ |
+### Typical deployment flow:
 
-   Attach the rule to the `portfolio.vivekprakash.de` custom domain only. The middleware ensures direct navigations, deep links, and asset requests resolve correctly.
-4. **Optional: configure cross-links.** The portfolio header links back to the main site. If your apex domain differs, set `NEXT_PUBLIC_HOME_ORIGIN` (for example `https://example.com`) so the link resolves correctly in production.
-5. **Deploy once.** Redeploy (or trigger a manual deploy) so the middleware and domain configuration take effect.
+1. Build the app:
+   ```bash
+   npm run build
+   ```
 
-Visitors hitting `vivekprakash.de` stay on the landing page, while anyone using `portfolio.vivekprakash.de` is seamlessly served the portfolio without maintaining two separate codebases.
+2. Start using PM2:
+   ```bash
+   pm2 start npm --name "vivekprakash-site" -- start
+   pm2 save
+   ```
+
+3. Nginx config (example):
+
+```nginx
+server {
+    listen 80;
+    server_name vivekprakash.de;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+***
+
+## 📈 Features
+
+* ✅ Fully responsive design
+* ✅ Component-based architecture
+* ✅ Optimized font loading
+* ✅ Fast performance with Next.js
+* ✅ Clean UI using Tailwind CSS
+* ✅ Production-ready deployment setup
+
+***
+
+## 🧩 Customization
+
+You can easily customize:
+
+* Content → `app/` pages
+* UI components → `components/`
+* Styling → `tailwind.config.ts`
+* Assets → `public/`
+
+***
+
+## 📄 Environment Variables
+
+If needed, create:
+
+```
+.env.local
+```
+
+Example:
+
+```
+NEXT_PUBLIC_API_URL=your_api_url_here
+```
+
+***
+
+## 🧪 Linting
+
+```bash
+npm run lint
+```
+
+***
+
+## 💡 Future Enhancements
+
+* Add blog section
+* Add analytics (e.g., Google Analytics)
+* Integrate CMS (e.g., Contentful / Sanity)
+* Improve SEO with dynamic metadata
+
+***
+
+## 👤 Author
+
+**Vivek Prakash**  
+Digital Strategy Manager | QA Data & Analytics
+
+***
+
+## 📜 License
+
+This project is open-source and available for personal use and customization.
+
+***
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub.
+
+***
+
+## 🚀 Final Note
+
+This project demonstrates:
+
+* Modern frontend development with Next.js
+* Clean and scalable architecture
+* Production deployment using EC2 + Nginx + PM2
+
+***
