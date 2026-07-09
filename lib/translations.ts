@@ -219,16 +219,15 @@ export const translations = {
           "An in-depth strategic discussion and analytical framework for identifying and mitigating loan credibility risks.",
         longDescription:
           "This project involved a comprehensive strategic analysis of various factors contributing to loan credibility risks, including macroeconomic indicators, borrower financial health, and evolving market trends. The discussion focused on developing predictive models and robust risk mitigation strategies, providing actionable insights for financial institutions to build resilient credit assessment frameworks. Key strategic considerations included the impact of global economic shifts on loan defaults, leveraging advanced data analytics for proactive identification of high-risk applicants, and implementing dynamic risk scoring systems to ensure long-term financial stability and regulatory compliance.",
-        imageUrl: "/project1.jpg"
-        },
+        imageUrl: "/project1.jpg",
+      },
       {
         title: "Architecting a Scalable Travel Portal",
         description:
           "A detailed architectural blueprint and strategic discussion for building a high-performance, scalable travel portal.",
         longDescription:
           "This initiative centered on designing a highly scalable and resilient architectural blueprint for a modern travel portal. The strategic discussion encompassed a microservices-based design approach, seamless API integrations with a multitude of global travel providers (flights, hotels, car rentals), and the implementation of robust, fault-tolerant database solutions. Critical considerations included optimizing for high availability, enabling real-time data processing for dynamic pricing strategies, and ensuring secure, compliant payment gateways. The architecture was specifically engineered to address scalability challenges during peak traffic periods and to facilitate the future integration of AI for hyper-personalized user experiences and recommendations.",
-        imageUrl: "/project2.jpg"
-      
+        imageUrl: "/project2.jpg",
       },
       {
         title: "Product Leadership: B2B2C Smart Mobility SaaS Platform",
@@ -236,6 +235,7 @@ export const translations = {
           "Led the end-to-end product development and lifecycle management of a cutting-edge smart mobility SaaS platform with integrated AI and complex partner ecosystems.",
         longDescription:
           "As Head of Product and Technology, I provided strategic leadership for the development and full lifecycle management of a pioneering B2B2C SaaS platform. This platform delivered advanced smart mobility solutions, featuring an innovative AI-powered chatbot and sophisticated fleet configurators. A core strategic achievement was orchestrating complex API-based data sharing across a diverse ecosystem of partners, including industry leaders like DAT and GDV. My role encompassed driving the product vision for critical modules such as insurance automation, digital garage, and claims estimation, while also strategically overseeing external technology partners and freelance engineers, prioritizing cost-effective, agile, and high-quality full-stack solution delivery.",
+        imageUrl: "/placeholder.png",
       },
       {
         title: "IT Product Strategy: Operational Portal & Enterprise System Integration",
@@ -243,6 +243,7 @@ export const translations = {
           "Defined and executed the IT product vision for a flagship operational portal, integrating AI capabilities and orchestrating complex ERP/CRM system connections.",
         longDescription:
           "In this pivotal role, I was responsible for defining and executing the strategic IT product vision for the company’s flagship Operational portal. A significant strategic imperative was the integration of advanced AI-driven features, which demonstrably enhanced both user experience and operational efficiency. I also led the complex integration of the company’s proprietary ERP systems with leading third-party solutions, including Hubspot CRM and eGecko accounting systems. This initiative streamlined critical business processes, improved data integrity, and provided a unified view of operations. My leadership involved extensive collaboration with cross-functional stakeholders across development, support, and UI/UX teams to establish rigorous acceptance criteria and ensure the successful delivery of high-impact, business-critical features.",
+        imageUrl: "/placeholder.png",
       },
       {
         title: "Senior Product Management: Payment & KYC Solutions Innovation",
@@ -250,6 +251,7 @@ export const translations = {
           "Spearheaded the development of critical payment integration and KYC business cases, driving significant growth and innovation in the financial industry.",
         longDescription:
           "During my tenure as Senior Product Manager, I spearheaded the strategic product development for critical payment integration and Know Your Customer (KYC) business cases. This role demanded profound expertise in navigating complex payment solutions and adhering to stringent regulatory landscapes. My contributions were instrumental in the company's strategic transformation and significant growth, particularly after securing Series B funding, solidifying its position as a key innovator in the financial industry. I rigorously applied advanced agile methodologies, demonstrating exceptional skill in strategic backlog grooming, prioritization, and meticulous sprint planning with multiple high-performing Scrum teams. This leadership directly fueled product-led growth initiatives that substantially enhanced user acquisition and engagement metrics.",
+        imageUrl: "/placeholder.png",
       },
     ],
     educationCertifications: "Education & Certifications",
@@ -628,6 +630,7 @@ AFC Claims GmbH`,
           "Eine eingehende strategische Diskussion und ein analytischer Rahmen zur Identifizierung und Minderung von Kreditwürdigkeitsrisiken.",
         longDescription:
           "Dieses Projekt umfasste eine umfassende strategische Analyse verschiedener Faktoren, die zu Kreditwürdigkeitsrisiken beitragen, einschließlich makroökonomischer Indikatoren, finanzieller Gesundheit des Kreditnehmers und sich entwickelnder Markttrends. Die Diskussion konzentrierte sich auf die Entwicklung prädiktiver Modelle und robuster Risikominderungsstrategien, die umsetzbare Erkenntnisse für Finanzinstitute zur Entwicklung widerstandsfähiger Kreditbewertungsrahmen lieferten. Zu den wichtigsten strategischen Überlegungen gehörten die Auswirkungen globaler Wirtschaftsschwankungen auf Kreditausfälle, die Nutzung fortschrittlicher Datenanalysen zur proaktiven Identifizierung von Hochrisikobewerbern und die Implementierung dynamischer Risikobewertungssysteme zur Gewährleistung langfristiger finanzieller Stabilität und Einhaltung gesetzlicher Vorschriften.",
+        imageUrl: "/project1.jpg",
       },
       {
         title: "Architektur eines Skalierbaren Reiseportals",
@@ -635,6 +638,7 @@ AFC Claims GmbH`,
           "Ein detaillierter Architekturplan und eine strategische Diskussion zum Aufbau eines leistungsstarken, skalierbaren Reiseportals.",
         longDescription:
           "Diese Initiative konzentrierte sich auf die Gestaltung eines hochgradig skalierbaren und widerstandsfähigen Architekturplans für ein modernen Reiseportal. Die strategische Diskussion umfasste einen Microservices-basierten Designansatz, nahtlose API-Integrationen mit einer Vielzahl globaler Reiseanbieter (Flüge, Hotels, Mietwagen), und die Implementierung robuster, fehlertoleranter Datenbanklösungen. Kritische Überlegungen umfassten die Optimierung für hohe Verfügbarkeit, die Ermöglichung der Echtzeit-Datenverarbeitung für dynamische Preisstrategien und die Sicherstellung sicherer, konformer Zahlungsgateways. Die Architektur wurde speziell entwickelt, um Skalierbarkeitsherausforderungen während Spitzenverkehrszeiten zu bewältigen und die zukünftige Integration von KI für hyperpersonalisierte Benutzererlebnisse und Empfehlungen zu erleichtern.",
+        imageUrl: "/project2.jpg",
       },
       {
         title: "Produktführung: B2B2C Smart Mobility SaaS-Plattform",
@@ -642,6 +646,7 @@ AFC Claims GmbH`,
           "Leitung der End-to-End-Produktentwicklung und des Lebenszyklusmanagements einer hochmodernen Smart-Mobility-SaaS-Plattform mit integrierter KI und komplexen Partnerökosystemen.",
         longDescription:
           "Als Leiter Produkt und Technologie übernahm ich die strategische Führung bei der Entwicklung und dem gesamten Lebenszyklusmanagement einer wegweisenden B2B2C SaaS-Plattform. Diese Plattform lieferte fortschrittliche Smart-Mobility-Lösungen, darunter einen innovativen KI-gestützten Chatbot und ausgeklügelte Flottenkonfiguratoren. Eine zentrale strategische Errungenschaft war die Orchestrierung komplexer API-basierter Datenfreigabe über ein vielfältiges Partnerökosystem, einschließlich Branchenführern wie DAT und GDV. Meine Rolle umfasste die Förderung der Produktvision für kritische Module wie Versicherungsautomatisierung, digitale Garage und Schadensschätzung, während ich auch strategisch externe Technologiepartner und freiberufliche Ingenieure beaufsichtigte, um eine agile, kostengünstige und qualitativ hochwertige Full-Stack-Lösungsbereitstellung sicherzustellen.",
+        imageUrl: "/placeholder.png",
       },
       {
         title: "IT-Produktstrategie: Betriebsportal & Integration von Unternehmenssystemen",
@@ -649,6 +654,7 @@ AFC Claims GmbH`,
           "Definition und Umsetzung der IT-Produktvision für ein Flaggschiff-Betriebsportal, Integration von KI-Funktionen und Orchestrierung komplexer ERP/CRM-Systemverbindungen.",
         longDescription:
           "In dieser Schlüsselrolle war ich für die Definition und Umsetzung der strategischen IT-Produktvision für das Flaggschiff-Betriebsportal des Unternehmens verantwortlich. Ein wichtiges strategisches Gebot war die Integration fortschrittlicher KI-gesteuerter Funktionen, die sowohl die Benutzererfahrung als auch die Betriebseffizienz nachweislich verbesserten. Diese Initiative optimierte kritische Geschäftsprozesse, verbesserte Datenintegrität und ermöglichte eine einheitliche Betriebsansicht. Meine Führung umfasste umfassende Zusammenarbeit mit funktionsübergreifenden Stakeholdern aus Entwicklung, Support und UI/UX-Teams, um strenge Akzeptanzkriterien festzulegen und die erfolgreiche Bereitstellung hochwirkungsvoller, geschäftskritischer Funktionen sicherzustellen.",
+        imageUrl: "/placeholder.png",
       },
       {
         title: "Senior Produktmanagement: Zahlungs- und KYC-Lösungen Innovation",
@@ -656,6 +662,7 @@ AFC Claims GmbH`,
           "Anführung der Entwicklung kritischer Zahlungsintegrations- und KYC-Geschäftsfälle, die erhebliches Wachstum und Innovation in der Finanzbranche vorantreiben.",
         longDescription:
           "Während meiner Tätigkeit als Senior Produktmanager übernahm ich die strategische Führung bei der Entwicklung kritischer Zahlungsintegrations- und Know Your Customer (KYC)-Geschäftsfälle. Diese Rolle erforderte tiefgreifende Expertise bei der Navigation durch komplexe Zahlungslösungen und der Einhaltung strenger regulatorischer Rahmenbedingungen. Meine Beiträge waren maßgeblich für die strategische Transformation und das erhebliche Wachstum des Unternehmens, insbesondere nach der Erreichung der Series-B-Finanzierung, verantwortlich, die seine Position als wegweisender Innovator in der Finanzbranche festigte. Ich wendete konsequent fortschrittliche agile Methoden an, zeigend außergewöhnliche Fähigkeiten in der strategischen Backlog-Pflege, Priorisierung und akribischen Sprintplanung mit mehreren hochleistungsfähigen Scrum-Teams an. Diese Führung stärkte produktgesteuerte Wachstumsinitiativen, die die Benutzerakquise und -bindung erheblich verbesserten.",
+        imageUrl: "/placeholder.png",
       },
     ],
     educationCertifications: "Ausbildung & Zertifizierungen",

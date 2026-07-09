@@ -21,16 +21,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-interface PortfolioItem {
-  title: string
-  description: string
-  longDescription: string
-  imageUrl?: string
-}
-
 export default function ProfilePage() {
   const [language, setLanguage] = useState<Language>("en")
-  const [selectedPortfolioItem, setSelectedPortfolioItem] = useState<PortfolioItem | null>(null)
   const t = translations[language]
 
   useEffect(() => {
@@ -42,8 +34,6 @@ export default function ProfilePage() {
     } else {
       setLanguage("en")
     }
-    // --- IGNORE ---
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleLanguageChange = (lang: Language) => {

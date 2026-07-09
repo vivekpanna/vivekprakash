@@ -4,10 +4,10 @@ import { ArrowRight, Briefcase, Globe, LineChart, Mail, Sparkles, Target } from 
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { getTechNews } from "@/lib/news"
+import { NewsCard } from "@/components/news-card"
 
 const highlights = [
   {
@@ -51,6 +51,57 @@ const collaborations = [
   "Creative Agencies",
   "Non-profits",
 ]
+
+const valueTools = [
+  {
+    title: "Free Product Health Audit",
+    description: "Get a quick self-diagnostic checklist for product focus, metrics, and go-to-market readiness.",
+    href: "/audit",
+  },
+  {
+    title: "Growth Opportunity Guide",
+    description: "Learn the top steps to turn your product strategy into faster revenue and stronger market fit.",
+    href: "/growth-guide",
+  },
+  {
+    title: "Ad-Friendly Roadmap Framework",
+    description: "A simple framework for planning product features that convert, retain, and scale.",
+    href: "/roadmap",
+  },
+]
+
+export const revalidate = 3600
+
+async function fetchTechNews() {
+  return await getTechNews()
+}
+
+async function NewsSection() {
+  const news = await fetchTechNews()
+
+  return (
+    <section id="tech-news" className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-10 shadow-2xl shadow-primary/10">
+      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.35em] text-primary">Latest tech industry news</p>
+          <h2 className="mt-3 text-3xl font-semibold text-white">Fresh stories, updated hourly</h2>
+        </div>
+        <p className="max-w-2xl text-sm text-white/70">
+          Curated headlines from the technology world to keep visitors returning and to signal freshness to ad platforms.
+        </p>
+      </div>
+      <div className="grid gap-5 lg:grid-cols-2">
+        {news.length > 0 ? (
+          news.map((item) => <NewsCard key={item.url} {...item} />)
+        ) : (
+          <div className="rounded-3xl border border-white/10 bg-slate-950/80 p-8 text-white/70">
+            No news available right now. Please refresh in a few minutes.
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
 
 const navItems = [
   { label: "Overview", href: "#overview" },
@@ -99,7 +150,7 @@ export default function LandingPage() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-white/70">
               <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
-              Product leadership with a builder's soul
+              Product leadership with a builder&apos;s soul
             </div>
             <h2 className="mt-6 text-3xl font-semibold tracking-tight md:text-4xl">From vision to measurable impact</h2>
             <p className="mt-4 text-lg text-white/70">
@@ -191,6 +242,61 @@ export default function LandingPage() {
             </Card>
           </div>
         </section>
+
+        <section className="grid gap-8 lg:grid-cols-[1.3fr,0.9fr]">
+          <Card className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-primary/10">
+            <CardHeader>
+              <CardTitle className="text-3xl font-semibold text-white">Useful tools to help visitors convert</CardTitle>
+            </CardHeader>
+            <CardContent className="grid gap-5 pt-6">
+              {valueTools.map((tool) => (
+                <div key={tool.title} className="rounded-3xl border border-white/10 bg-slate-950/80 p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{tool.title}</h3>
+                      <p className="mt-2 text-sm text-white/70">{tool.description}</p>
+                    </div>
+                    <Button asChild size="sm" variant="outline" className="border-white/15 text-white hover:bg-white/10">
+                      <Link href={tool.href}>
+                        View
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-3xl border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-primary/10">
+            <CardHeader>
+              <CardTitle className="text-3xl font-semibold text-white">Ad-ready content highlights</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="grid gap-4">
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                  <p className="text-sm uppercase tracking-[0.35em] text-primary">Audience signal</p>
+                  <p className="mt-3 text-base text-white/70">
+                    Product leadership, tech strategy, and business growth attract high-value engagement and better ad yield.
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                  <p className="text-sm uppercase tracking-[0.35em] text-primary">Ad support</p>
+                  <p className="mt-3 text-base text-white/70">
+                    Fresh news and useful resources improve time-on-page, reduce bounce rate, and make the site more attractive for ad placements.
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+                  <p className="text-sm uppercase tracking-[0.35em] text-primary">Visitor value</p>
+                  <p className="mt-3 text-base text-white/70">
+                    A dynamic news feed keeps visitors engaged and signals that the site is continually updated.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <NewsSection />
 
         <section id="contact" className="space-y-6 text-center">
           <h3 className="text-3xl font-semibold md:text-4xl">Ready to create momentum?</h3>
